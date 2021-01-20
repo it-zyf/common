@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaboy.common.mapper.ThymelefMapper">
+
+    <select id="index" resultType="com.javaboy.common.entity.Hero">
+        select id ,name ,role_main as attribute from heros
+    </select>
+
+    <select id="infomation" resultType="com.javaboy.common.entity.Infomation">
+        select * from infomation
+    </select>
+    <select id="show" resultType="com.javaboy.common.entity.Show">
+        select  song_name as songName,name,lyrics from show1 where id=${id}
+    </select>
+</mapper>

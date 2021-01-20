@@ -1,0 +1,16 @@
+server:
+  port: 9009
+logging:
+  level:
+    com.javaboy.common.mapper: debug  #dao的路径
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+pagehelper:                #分页插件
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:

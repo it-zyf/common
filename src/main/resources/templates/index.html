@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hero</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>英雄名</td>
+        <td>属性</td>
+    </tr>
+    <tr th:each="user:${pageInfo.list}">
+        <td type="hidden" th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.attribute}"></td>
+    </tr>
+</table>
+
+<!--分页-->
+<!--<div class="modal-footer no-margin-top">
+    <div class="col-md-6 col-xs-8 col-xs-offset-1">
+        当前第 [[${pageInfo.pageNum}]]页，共 [[${pageInfo.pages}]] 页， 共 [[${pageInfo.total}]] 条记录
+    </div>
+
+    <ul class="pagination pull-right no-margin">
+        <li>
+            <a th:href="'/index?pageNum=1'">首页</a>
+        </li>
+        <li class="prev" th:if="${pageInfo.hasPreviousPage}">
+            <a th:href="'/index?pageNum='+${pageInfo.prePage}">
+                <i class="ace-icon fa fa-angle-double-left"></i>
+            </a>
+        </li>
+        &lt;!&ndash;遍历条数&ndash;&gt;
+        <li th:each="nav:${pageInfo.navigatepageNums}">
+            <a th:href="'/index?pageNum='+${nav}" th:text="${nav}" th:if="${nav != pageInfo.pageNum}"></a>
+            <span style="font-weight: bold;background: #6faed9;" th:if="${nav == pageInfo.pageNum}" th:text="${nav}" ></span>
+        </li>
+
+        <li class="next" th:if="${pageInfo.hasNextPage}">
+            <a th:href="'/index?pageNum='+${pageInfo.nextPage}">
+                <i class="ace-icon fa fa-angle-double-right"></i>
+            </a>
+        </li>
+        <li>
+            <a th:href="'/index?pageNum='+${pageInfo.pages}">尾页</a>
+        </li>
+    </ul>
+</div>-->
+
+
+<p>当前 <span style="color: crimson" th:text="${pageInfo.pageNum}"></span> 页,总 <span style="color: crimson"
+                                                                                   th:text="${pageInfo.pages}"></span>
+    页,共 <span style="color: crimson" th:text="${pageInfo.total}"></span> 条记录</p>
+<a style="color: crimson" th:href="@{/index}">首页</a>
+<a style="color: crimson" th:href="@{/index(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a>
+<a style="color: crimson" th:href="@{/index(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a>
+<a style="color: crimson" th:href="@{/index(pageNum=${pageInfo.pages})}">尾页</a>
+
+
+</body>
+</html>
