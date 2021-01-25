@@ -4,10 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * @author yayu
@@ -24,13 +21,13 @@ public class Test4 {
     @RequestMapping("/imgDepDowLoad")
     public void downloadLocal(HttpServletResponse response) throws FileNotFoundException {
         // 下载本地文件
-        String fileName = "P:\\learnProject\\common\\src\\main\\java\\com\\javaboy\\common\\util\\photo\\dependent.zip"; // 文件的默认保存名
+        String fileName = "P:\\learnProject\\common\\src\\main\\java\\com\\javaboy\\common\\util\\photo\\dependent"; // 文件的默认保存名
         // 读到流中
         InputStream inStream = new FileInputStream(fileName);// 文件的存放路径
         // 设置输出的格式
         response.reset();
         response.setContentType("bin");
-        response.addHeader("Content-Disposition", "attachment; filename=\"" + "dependent.zip" + "\"");
+        response.addHeader("Content-Disposition", "attachment; filename=\"" + "dependent" + "\"");
         // 循环取出流中的数据
         byte[] b = new byte[100];
         int len;

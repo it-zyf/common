@@ -26,7 +26,7 @@ public class ThymelefServiceImpl implements ThymelefService {
 
     @Override
     public PageInfo index(Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+        PageHelper.startPage(pageNum, pageSize,"order by id desc");
         List<Hero> list = thymelefMapper.index();
         PageInfo<Hero> pageInfo = new PageInfo<>(list);
         return pageInfo;
