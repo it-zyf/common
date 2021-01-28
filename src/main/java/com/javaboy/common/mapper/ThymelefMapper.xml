@@ -14,4 +14,7 @@
     <select id="show" resultType="com.javaboy.common.entity.Show">
         select  song_name as songName,name,lyrics from show1 where id=${id}
     </select>
+    <select id="getByid" parameterType="integer" resultType="com.javaboy.common.entity.Hero">
+      select  * from heros where id =${id}
+    </select>
 </mapper>

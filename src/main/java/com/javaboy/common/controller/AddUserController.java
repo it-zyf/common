@@ -1,16 +1,11 @@
 package com.javaboy.common.controller;
 
-import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageInfo;
 import com.javaboy.common.service.AddUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
-import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -21,7 +16,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/add")
-public class AddUserConTroller {
+public class AddUserController {
     @Autowired
     private AddUserService addUserService;
 

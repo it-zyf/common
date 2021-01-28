@@ -9,7 +9,6 @@ import com.javaboy.common.mapper.ThymelefMapper;
 import com.javaboy.common.service.ThymelefService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -26,9 +25,9 @@ public class ThymelefServiceImpl implements ThymelefService {
 
     @Override
     public PageInfo index(Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum, pageSize,"order by id desc");
+        PageHelper.startPage(pageNum, pageSize," id desc");
         List<Hero> list = thymelefMapper.index();
-        PageInfo<Hero> pageInfo = new PageInfo<>(list);
+        PageInfo<Hero> pageInfo = new PageInfo<>(list,pageSize);
         return pageInfo;
     }
 
@@ -44,5 +43,13 @@ public class ThymelefServiceImpl implements ThymelefService {
     public Show show(Integer id) {
      Show show=thymelefMapper.show(id);
         return show;
+    }
+
+    @Override
+    public PageInfo<Hero> getByid(Integer id) {
+        List<Hero> byid = thymelefMapper.getByid(id);
+        PageInfo<Hero> pageInfo = new PageInfo<>(byid);
+        return pageInfo;
+
     }
 }

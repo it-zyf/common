@@ -1,6 +1,7 @@
 package com.javaboy.common.service;
 
 import com.github.pagehelper.PageInfo;
+import com.javaboy.common.entity.Hero;
 import com.javaboy.common.entity.Infomation;
 import com.javaboy.common.entity.Show;
 
@@ -16,4 +17,6 @@ public interface ThymelefService {
     PageInfo<Infomation> infomation(Integer pageNum,Integer pageSize);
 
     Show show(Integer id);
+
+    PageInfo<Hero> getByid(Integer id);
 }

@@ -1,5 +1,6 @@
 package com.javaboy.common.mapper;
 
+import com.github.pagehelper.PageInfo;
 import com.javaboy.common.entity.Hero;
 import com.javaboy.common.entity.Infomation;
 import com.javaboy.common.entity.Show;
@@ -21,4 +22,6 @@ public interface ThymelefMapper {
     List<Infomation> infomation();
 
     Show show(@Param("id") Integer id);
+
+    List<Hero> getByid(@Param("id") Integer  id);
 }
