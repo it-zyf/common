@@ -1,5 +1,6 @@
 package com.javaboy.common.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.javaboy.common.entity.Hero;
@@ -25,10 +26,13 @@ public class ThymelefServiceImpl implements ThymelefService {
 
     @Override
     public PageInfo index(Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum, pageSize," id desc");
+        PageHelper.startPage(pageNum, pageSize, " id desc");
         List<Hero> list = thymelefMapper.index();
-        PageInfo<Hero> pageInfo = new PageInfo<>(list,pageSize);
-        return pageInfo;
+        if(CollUtil.isNotEmpty(list)){
+            PageInfo<Hero> pageInfo = new PageInfo<>(list, pageSize);
+            return pageInfo;
+        }
+        return new PageInfo();
     }
 
     @Override
@@ -41,15 +45,17 @@ public class ThymelefServiceImpl implements ThymelefService {
 
     @Override
     public Show show(Integer id) {
-     Show show=thymelefMapper.show(id);
+        Show show = thymelefMapper.show(id);
         return show;
     }
 
     @Override
     public PageInfo<Hero> getByid(Integer id) {
         List<Hero> byid = thymelefMapper.getByid(id);
-        PageInfo<Hero> pageInfo = new PageInfo<>(byid);
-        return pageInfo;
-
+        if (CollUtil.isNotEmpty(byid)) {
+            PageInfo<Hero> pageInfo = new PageInfo<>(byid);
+            return pageInfo;
+        }
+        return new PageInfo<>();
     }
 }

@@ -5,6 +5,8 @@ import com.javaboy.common.entity.Hero;
 import com.javaboy.common.entity.Infomation;
 import com.javaboy.common.entity.Show;
 import com.javaboy.common.service.ThymelefService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class ThymelefController {
+    private static final Logger logger = LoggerFactory.getLogger(ThymelefController.class);
+
     @Autowired
     private ThymelefService thymelefService;
 
@@ -27,6 +31,7 @@ public class ThymelefController {
     public String index(Model model, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, @RequestParam(defaultValue = "10", value = "pageSize") Integer pageSize) {
         PageInfo<Hero> pageInfo = thymelefService.index(pageNum, pageSize);
         model.addAttribute("pageInfo", pageInfo);
+        logger.info("查询成功1!");
         return "index";
     }
 
