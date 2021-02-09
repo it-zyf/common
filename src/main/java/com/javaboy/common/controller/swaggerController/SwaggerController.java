@@ -32,11 +32,17 @@ public class SwaggerController {
 
     @GetMapping("/hero/{id}")
     @ApiOperation("查询英雄接口")
-    @ApiImplicitParam(name = "id",value = "英雄id",dataType = "Integer")
+    @ApiImplicitParam(name = "id", value = "英雄id", dataType = "Integer")
     public PageInfo queryHero(@PathVariable("id") Integer id) {
         PageInfo<Hero> pageInfo = thymelefService.getByid(id);
         logger.info("查询成功~~~");
         return pageInfo;
     }
+
+    @RequestMapping("/test")
+    public String test() {
+        return "hello ";
+    }
+
 
 }
