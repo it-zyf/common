@@ -1,5 +1,4 @@
 package com.javaboy.common.controller.stream;
-
 import com.javaboy.common.entity.Infomation;
 import com.javaboy.common.mapper.StreamMapper;
 import org.apache.ibatis.cursor.Cursor;
@@ -9,22 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
 import java.util.List;
-
 /**
- * @author yayu
- * @title: StreamController
- * @description: TODO mybatis 流查询
- * @date 2021/2/18 15:36
+ * mybatis流查询接口
  */
 @RequestMapping("/foo")
 @RestController
 public class StreamController {
     @Autowired
     StreamMapper streamMapper;
-
+    /**
+     * 查询接口
+     * @param limit 分页数量
+     */
     @GetMapping("/query/{limit}")
     @Transactional
     public List<Infomation> scanFoo3(@PathVariable("limit") int limit) throws Exception {

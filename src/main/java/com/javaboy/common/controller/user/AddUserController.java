@@ -1,4 +1,4 @@
-package com.javaboy.common.controller;
+package com.javaboy.common.controller.user;
 
 import com.github.pagehelper.PageInfo;
 import com.javaboy.common.service.AddUserService;
