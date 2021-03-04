@@ -42,12 +42,12 @@ public class AddUserServiceImpl implements AddUserService {
 
     @Override
     public int hh() {
-        HH hh = HH.builder().name("娜可露露").build();
-        int i = adduserMapper.hh(hh);
-        if(i==1){
-            Integer id = hh.getId();
-            return id;
-        }
+//        HH hh = HH.builder().name("娜可露露").build();
+//        int i = adduserMapper.hh(hh);
+//        if(i==1){
+//            Integer id = hh.getId();
+//            return id;
+//        }
         return 0;
     }
 

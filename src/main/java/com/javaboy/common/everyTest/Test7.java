@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import javax.lang.model.element.VariableElement;
+
 /**
  * @author yayu
  * @title: Test7
@@ -22,5 +24,7 @@ public class Test7 {
         for (Map.Entry<String, String> entry : entries) {
             System.out.println(entry.getValue());
         }
+
     }
+
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaboy.common.mapper.TypeHaderMapper">
+
+    <resultMap id="BaseResultMap" type="com.javaboy.common.entity.HH">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="honor" property="honor" typeHandler="com.javaboy.common.typeHader.TypeHader" />
+    </resultMap>
+
+
+    <insert id="addHH" parameterType="com.javaboy.common.entity.HH">
+        insert into hh (name ,honor) values(#{name,jdbcType=VARCHAR},#{honor,typeHandler=com.javaboy.common.typeHader.TypeHader});
+    </insert>
+
+    <select id="sel" resultMap="BaseResultMap">
+        select id,name,honor from hh
+    </select>
+
+
+</mapper>
