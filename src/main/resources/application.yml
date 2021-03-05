@@ -6,10 +6,15 @@ logging:
   config: src\main\resources\logback.xml #配不配效果好像都一样.
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: BOj0WiqAEUSfMpxjSpw8XGLh5EGrLGXJbjed4PArSDHQ7Vqm7Oi4q0EyJ+sxDNW+v1c4Fhy6B3GbbdQ7u+Njxg==
+      filters: config
+      connect-properties:
+          config.decrypt: true
+          config.decrypt.key: ${spring.datasource.druid.publickey}
 pagehelper:                #分页插件
   helper-dialect: mysql
   reasonable: true
