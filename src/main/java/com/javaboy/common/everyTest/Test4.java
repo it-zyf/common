@@ -21,7 +21,7 @@ public class Test4 {
     @RequestMapping("/imgDepDowLoad")
     public void downloadLocal(HttpServletResponse response) throws FileNotFoundException {
         // 下载本地文件
-        String fileName = "P:\\learnProject\\common\\src\\main\\java\\com\\javaboy\\common\\util\\photo\\dependent.zip"; // 文件的默认保存名
+        String fileName = "G:\\dependent.zip"; // 文件的默认保存名
         // 读到流中
         InputStream inStream = new FileInputStream(fileName);// 文件的存放路径
         // 设置输出的格式
