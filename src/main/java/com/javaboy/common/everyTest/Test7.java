@@ -2,6 +2,8 @@ package com.javaboy.common.everyTest;
 
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.system.HostInfo;
+import cn.hutool.system.SystemUtil;
 import cn.hutool.system.oshi.CpuInfo;
 import cn.hutool.system.oshi.OshiUtil;
 import org.junit.Test;
@@ -96,8 +98,9 @@ public class Test7 {
 
         }
 //        System.out.println(hardware);
-
-
+        HostInfo hostInfo = SystemUtil.getHostInfo();
+        String address = hostInfo.getAddress();
+        System.out.println(address);
 //
 //        System.out.println(memory);
     }
