@@ -10,7 +10,7 @@ import com.alibaba.druid.filter.config.ConfigTools;
  */
 public class DruidConfig {
     public static void main(String[] args) throws Exception {
-        String pwassWord="root";
-        ConfigTools.main(new String[]{pwassWord});
+        String passWord="root";
+        ConfigTools.main(new String[]{passWord});
     }
 }

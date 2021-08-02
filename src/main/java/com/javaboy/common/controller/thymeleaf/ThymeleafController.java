@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2021/1/8 15:03
  */
 @Controller
-public class ThymelefController {
-    private static final Logger logger = LoggerFactory.getLogger(ThymelefController.class);
+public class ThymeleafController {
+    private static final Logger logger = LoggerFactory.getLogger(ThymeleafController.class);
 
     @Autowired
     private ThymelefService thymelefService;
@@ -35,11 +35,11 @@ public class ThymelefController {
         return "index";
     }
 
-    @GetMapping("/xyy/infomation")
-    public String infomation(Model model, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, @RequestParam(defaultValue = "10", value = "pageSize") Integer pageSize) {
+    @GetMapping("/xyy/information")
+    public String information(Model model, @RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, @RequestParam(defaultValue = "10", value = "pageSize") Integer pageSize) {
         PageInfo<Infomation> pageInfo = thymelefService.infomation(pageNum, pageSize);
         model.addAttribute("pageInfo", pageInfo);
-        return "infomation";
+        return "information";
     }
 
 

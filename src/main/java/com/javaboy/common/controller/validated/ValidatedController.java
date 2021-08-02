@@ -22,7 +22,7 @@ public class ValidatedController {
     @RequestMapping("/addUser")
     public Map<String, Object> addUser(@RequestBody @Validated User user, BindingResult result) {
         if (null != result && result.hasErrors()) {
-            return new HashMap<String, Object>() {{
+            return new HashMap<String, Object>(2) {{
                 put("code", "403");
                 put("msg", result.getFieldError().getDefaultMessage());
             }};

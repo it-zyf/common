@@ -46,7 +46,7 @@ public class TestEasyPoi {
 
         } catch (Exception e) {
             // TODO: handle exception
-            return new HashMap<String, Object>() {{
+            return new HashMap<String, Object>(1) {{
                 put("code", "111");
             }};
         }

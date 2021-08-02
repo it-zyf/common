@@ -5,6 +5,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author v-zhangyafeng3
+ */
 @RestController
 @RequestMapping("/redis")
 public class RedisTest {
