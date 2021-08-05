@@ -14,7 +14,7 @@ public class Test9 {
     @ResponseBody
     public void download(HttpServletResponse response) throws Exception{
         response.setHeader("Content-Disposition", "attachment; filename=template.xlsx");
-        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("template.xlsx");
+        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("template/AssetTemplate.xlsx");
         IOUtils.copy(in,response.getOutputStream());
         in.close();
     }
