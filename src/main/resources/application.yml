@@ -19,3 +19,6 @@ pagehelper:                #分页插件
   reasonable: true
   support-methods-arguments: true
   params:
+
+    test:
+      hh: hh
