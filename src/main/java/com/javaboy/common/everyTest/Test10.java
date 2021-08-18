@@ -33,10 +33,33 @@ public class Test10 {
 
 
     @Test
-    public void test3(){
-        String a="500";
-        Integer b=500;
-        System.out.println(ObjectUtil.equal(Integer.parseInt(a),500));
-        System.out.println(ObjectUtils.nullSafeEquals(Integer.parseInt(a),500));
+    public void test3() {
+        String a = "500";
+        Integer b = 500;
+        System.out.println(ObjectUtil.equal(Integer.parseInt(a), 500));
+        System.out.println(ObjectUtils.nullSafeEquals(Integer.parseInt(a), 500));
     }
+
+    @Test
+    public void test4() {
+        String ip = "127.01.01,1012123";
+        String[] split = ip.split(",");
+        if (split.length >= 2) {
+            System.out.println(split[1]);
+        }
+    }
+
+    @Test
+    public void test5(){
+        String phone="15735653659";
+        String phoneNumber = phone.replaceAll("(\\d{3})\\d{4}(\\d{4})","$1****$2");
+        System.out.println(phoneNumber);
+
+        String email="15735653659@qq.com";
+        String resultEmail = email.replaceAll("(\\w?)(\\w+)(\\w)(@\\w+\\.[a-z]+(\\.[a-z]+)?)", "$1****$3$4");
+        System.out.println(resultEmail);
+    }
+
+
+
 }
