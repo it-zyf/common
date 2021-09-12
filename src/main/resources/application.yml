@@ -14,11 +14,15 @@ spring:
     host: localhost
     port: 6379
     database: 0
+  mail:
+    host: smtp.qq.com
+    port: 25
+    username: 761769578@qq.com
+    password: 123
 pagehelper:                #分页插件
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
   params:
-
-    test:
-      hh: hh
+test:
+  hh: hh
