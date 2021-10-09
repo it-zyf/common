@@ -13,4 +13,9 @@ public interface SendMailService {
      */
     void sendMail();
 
+    /**
+     * 发送邮件
+     */
+    String sendMail2();
+
 }

@@ -5,6 +5,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author v-zhangyafeng3
  */
@@ -21,4 +23,19 @@ public class RedisTest {
         return name;
 
     }
+
+    @RequestMapping("/test2")
+    public String test2() {
+        redisTemplate.opsForValue().set("age", "17",60 * 10, TimeUnit.SECONDS);
+        return "ok";
+    }
+
+    @RequestMapping("/test3")
+    public String test3() {
+        String age = (String) redisTemplate.opsForValue().get("age");
+        System.out.println(age);
+        redisTemplate.delete("age");
+        return "ok";
+    }
+
 }

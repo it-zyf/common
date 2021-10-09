@@ -18,8 +18,14 @@ public class TestMailController {
     private SendMailService sendMailService;
 
     @RequestMapping("/mail")
-    public String sendMail(){
+    public String sendMail() {
         sendMailService.sendMail();
         return "ok!";
+    }
+
+    @RequestMapping("/mail2")
+    public String sendMail2() {
+       return sendMailService.sendMail2();
+
     }
 }

@@ -5,6 +5,7 @@ import com.javaboy.common.entity.HH;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -60,6 +61,16 @@ public class Test12 {
             lists.add(strings);
         }
         System.out.println(lists);
+    }
+
+    @Test
+    public void test4() {
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap.put("age","17");
+        System.out.println(concurrentHashMap.get("age"));
+        concurrentHashMap.remove("age");
+        System.out.println(concurrentHashMap.get("age"));
+
     }
 
 
