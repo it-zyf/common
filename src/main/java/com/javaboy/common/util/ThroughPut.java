@@ -1,66 +1,32 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.util;
 
-import cn.hutool.core.date.DateTime;
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONObject;
-import cn.hutool.system.oshi.CpuInfo;
-import cn.hutool.system.oshi.OshiUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.javaboy.common.util.ThroughPut;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.StringTokenizer;
 
 /**
- * @author yayu
- * @title: Test13
- * @description: TODO
- * @date 2021/10/26 15:39
- */
+ * @author: zyf  获取网络云吞吐 上行速率 下行速率
+ * @create: 2021-11-01 16:15
+ **/
 @Slf4j
-public class Test13 {
-
+public class ThroughPut {
     private static final int SLEEP_TIME = 1000 * 60 * 9;
-    @Test
-    public void test() {
-        String hh = "2021-10-26 15:00:00";
-        String nowStr = DateUtil.now();
-        if (hh.compareTo(nowStr) < 0) {
-            System.out.println("hhhhh");
+
+    public String getThroughPut(){
+        String throughput = "";
+        if (isWindowsOrLinux().equals("windows")) {
+            throughput = getNetworkThroughputForWindows();
+        } else {
+            throughput = getNetworkThroughputForLinux();
         }
-        DateTime parse = DateUtil.parse(hh);
-
+        return throughput;
     }
-
-    @Test
-    public void test1() {
-        int a = 10;
-        ArrayList<Double> usedList = new ArrayList<>();
-        for (int i = 0; i < a; i++) {
-            CpuInfo cpuInfo = OshiUtil.getCpuInfo();
-            double used = cpuInfo.getUsed();
-            usedList.add(used);
-
-        }
-        for (Double aDouble : usedList) {
-
-            System.out.println(aDouble);
-        }
-    }
-
-    @Test
-    public void test2() {
-        ThroughPut  get= new ThroughPut();
-        String throughPut = get.getThroughPut();
-        System.out.println(throughPut);
-    }
-
 
     public String isWindowsOrLinux() {
         String osName = System.getProperty("os.name");
