@@ -2,6 +2,7 @@ package com.javaboy.common.everyTest;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.NumberUtil;
 import com.javaboy.common.constant.ViolationRegulationEnum;
 import org.junit.Test;
 
@@ -41,6 +42,15 @@ public class Test11 {
         list.add(3);
         String collect = list.stream().map(str -> String.valueOf(ViolationRegulationEnum.getMsg(str))).collect(Collectors.joining(","));
         System.out.println(collect);
+    }
+
+    @Test
+    public void test12(){
+        double div = NumberUtil.div(2, 4,2);
+        String s = String.valueOf(div * 100)+"%";
+        System.out.println(s);
+
+        System.out.println(DateUtil.today().replace("-","."));
     }
 
 }
