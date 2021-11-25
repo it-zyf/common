@@ -1,9 +1,15 @@
 package com.javaboy.common.everyTest;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUnit;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.NumberUtil;
 import com.javaboy.common.entity.HH;
+import com.javaboy.common.util.MyDateUtil;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -66,11 +72,60 @@ public class Test12 {
     @Test
     public void test4() {
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        concurrentHashMap.put("age","17");
+        concurrentHashMap.put("age", "17");
         System.out.println(concurrentHashMap.get("age"));
         concurrentHashMap.remove("age");
         System.out.println(concurrentHashMap.get("age"));
 
+    }
+
+
+    @Test
+    public void test5() {
+        //当前时间
+        Date date = DateUtil.date();
+        //结束时间
+        DateTime dateTime = DateUtil.endOfDay(date);
+
+        System.out.println(date);
+        System.out.println(dateTime);
+
+        //相差时间
+        long between = DateUtil.between(date, dateTime, DateUnit.SECOND);
+
+        System.out.println(between);
+
+
+    }
+
+    @Test
+    public void test6() {
+        Integer a = 3;
+        Integer b = 7;
+        BigDecimal div = NumberUtil.div(a, b);
+
+        String mul = NumberUtil.round(NumberUtil.mul(div, 100),2)+"%";
+        System.out.println(mul);
+    }
+
+
+    @Test
+    public void test7(){
+        Date date = new Date();
+        DateTime dateTime1 = DateUtil.offsetDay(date, -6);
+        String format = DateUtil.format(dateTime1, "yyyy-MM-dd");
+//        System.out.println(format);
+        String today = DateUtil.today();
+//        System.out.println(today);
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("2021-11-17");
+        List<String> betweenDate = MyDateUtil.getBetweenDate(format, today);
+        for (String s : betweenDate) {
+
+              System.out.println(s);
+
+
+        }
     }
 
 
