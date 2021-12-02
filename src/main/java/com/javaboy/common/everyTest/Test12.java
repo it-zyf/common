@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.NumberUtil;
 import com.javaboy.common.entity.HH;
 import com.javaboy.common.util.MyDateUtil;
@@ -104,13 +105,13 @@ public class Test12 {
         Integer b = 7;
         BigDecimal div = NumberUtil.div(a, b);
 
-        String mul = NumberUtil.round(NumberUtil.mul(div, 100),2)+"%";
+        String mul = NumberUtil.round(NumberUtil.mul(div, 100), 2) + "%";
         System.out.println(mul);
     }
 
 
     @Test
-    public void test7(){
+    public void test7() {
         Date date = new Date();
         DateTime dateTime1 = DateUtil.offsetDay(date, -6);
         String format = DateUtil.format(dateTime1, "yyyy-MM-dd");
@@ -122,10 +123,18 @@ public class Test12 {
         List<String> betweenDate = MyDateUtil.getBetweenDate(format, today);
         for (String s : betweenDate) {
 
-              System.out.println(s);
+            System.out.println(s);
 
 
         }
+    }
+
+    @Test
+    public void test8() {
+        String securityUser = IdUtil.simpleUUID();
+        System.out.println(securityUser);
+        String role = IdUtil.simpleUUID();
+        System.out.println(role);
     }
 
 
