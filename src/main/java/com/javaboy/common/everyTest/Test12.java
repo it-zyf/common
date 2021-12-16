@@ -137,5 +137,14 @@ public class Test12 {
         System.out.println(role);
     }
 
+    @Test
+    public void test9() {
+        BigDecimal al = new BigDecimal(1);
+        for (int i = 0; i < 5; i++) {
+            al = NumberUtil.add(al, i);
+        }
+        System.out.println(al);
+    }
+
 
 }
