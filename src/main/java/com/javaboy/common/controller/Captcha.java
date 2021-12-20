@@ -28,7 +28,7 @@ public class Captcha {
         SpecCaptcha specCaptcha = new SpecCaptcha(130, 50, 6);
         //算术验证码
         ArithmeticCaptcha arithmeticCaptcha = new ArithmeticCaptcha(130, 50, 3);
-        System.out.println(arithmeticCaptcha.text());
-        CaptchaUtil.out(arithmeticCaptcha,request, response);
+        System.out.println(specCaptcha.text());
+        CaptchaUtil.out(specCaptcha,request, response);
     }
 }

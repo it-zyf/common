@@ -1,0 +1,21 @@
+    //树状结构:
+    public void test2() {
+        List<ModuleFunctionMenu> allList = functionMenuMapper.selectList(new QueryWrapper<>());
+        List<ModuleFunctionMenu> modelList = Optional.ofNullable(allList).orElse(new ArrayList<>()).stream()
+                .filter(model -> model.getPid() == 0)
+                .collect(Collectors.toList());
+        Optional.ofNullable(modelList).orElse(new ArrayList<>()).forEach(model -> model.setPageList(getChiled(model.getId(), allList)));
+
+
+        return new ResponseMsg(CodeConstant.SUCCESS, "查询成功!", new HashMap<String, Object>(1) {{
+            put("modelList", modelList);
+        }});
+    }
+
+    private List<ModuleFunctionMenu> getChiled(Integer id, List<ModuleFunctionMenu> allList) {
+        List<ModuleFunctionMenu> pageList = Optional.ofNullable(allList).orElse(new ArrayList<>()).stream()
+                .filter(model -> model.getPid().equals(id))
+                .collect(Collectors.toList());
+        Optional.ofNullable(pageList).orElse(new ArrayList<>()).forEach(page -> page.setFuncList(getChiled(page.getId(), allList)));
+        return pageList;
+    }
