@@ -21,4 +21,10 @@ public class ThreadController {
     public String test() {
         return threadService.test();
     }
+
+    @GetMapping("/test2")
+    public String test2() {
+        return threadService.allTest();
+    }
+
 }
