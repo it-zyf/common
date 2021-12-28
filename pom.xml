@@ -169,11 +169,11 @@
             <version>4.4.5</version>
         </dependency>
 
-        <dependency>
+  <!--      <dependency>
             <groupId>com.youtu</groupId>
             <artifactId>youtu-java-sdk</artifactId>
             <version>1.0.0</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>

@@ -25,4 +25,11 @@ public class XxlTask {
         System.out.println("RUN TIME");
     }
 
+    @XxlJob("kingJunk")
+    public void kingJunk(){
+        XxlJobHelper.log("START TASK!");
+        System.out.println("Then King Is Junk!");
+    }
+
+
 }
