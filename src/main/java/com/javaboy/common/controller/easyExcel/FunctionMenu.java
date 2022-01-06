@@ -30,7 +30,4 @@ public class FunctionMenu {
     @ColumnWidth(10)
     private Integer status;
 
-    @ExcelProperty("路径")
-    @ColumnWidth(10)
-    private String path;
 }
