@@ -37,6 +37,13 @@
         </dependency>
 
 
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--            <version>3.4.3.4</version>-->
+<!--        </dependency>-->
+
+
         <!--hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>

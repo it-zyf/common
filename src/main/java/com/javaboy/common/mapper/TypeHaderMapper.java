@@ -1,7 +1,7 @@
 package com.javaboy.common.mapper;
 
 import com.javaboy.common.entity.HH;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * @description: TODO
  * @date 2021/3/3 17:03
  */
-@Mapper
+@Repository
 public interface TypeHaderMapper {
     void addHH(HH hh);
 
