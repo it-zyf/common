@@ -2,10 +2,13 @@ package com.javaboy.common.everyTest;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.StrUtil;
 import com.javaboy.common.constant.ViolationRegulationEnum;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,6 +54,25 @@ public class Test11 {
         System.out.println(s);
 
         System.out.println(DateUtil.today().replace("-","."));
+    }
+
+    @Test
+    public void test13(){
+        Double a =12.0;
+        BigDecimal bigDecimal = new BigDecimal(a);
+        BigDecimal add = bigDecimal.add(new BigDecimal(1));
+        System.out.println(add);
+    }
+
+    @Test
+    public void test14(){
+        System.out.println(IdUtil.simpleUUID());
+    }
+
+    @Test
+    public void test15(){
+        String format="http:{}/alltesting/b/infoManage/role/list";
+        System.out.println(StrUtil.format(format,"127.0.0.1:8081"));
     }
 
 }
