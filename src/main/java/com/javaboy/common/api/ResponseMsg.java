@@ -21,6 +21,9 @@ public class ResponseMsg<T> implements Serializable {
 
     private T data = null;
 
+    public ResponseMsg() {
+    }
+
     public ResponseMsg(int code, String msg){
         this.code = code;
         this.msg = msg;
