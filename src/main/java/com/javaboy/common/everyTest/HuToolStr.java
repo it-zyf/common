@@ -1,5 +1,6 @@
 package com.javaboy.common.everyTest;
 
+import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.junit.Test;
  * @author: zyf
  * @create: 2021-12-17 16:16
  **/
+@SuppressWarnings({"rawtypes","unchecked"})
 public class HuToolStr {
     /**
      * 模板使用
@@ -37,6 +39,17 @@ public class HuToolStr {
         String s = roleId.split(",")[i];
         System.out.println(s);
 
+
+    }
+
+    @Test
+    public void test3(){
+        String a = "";
+        String b="123";
+        boolean blank = CharSequenceUtil.isBlank(a);
+        boolean blank1 = CharSequenceUtil.isBlank(b);
+        System.out.println(blank);
+        System.out.println(blank1);
 
     }
 
