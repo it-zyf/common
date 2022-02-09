@@ -2,13 +2,12 @@ package com.javaboy.common.xxl.task;
 
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
-import org.springframework.stereotype.Component;
 
 /**
  * @author: zyf
  * @create: 2021-12-24 15:40
  **/
-@Component
+//@Component
 public class XxlTask {
     /**
      * 1、简单任务示例（Bean模式）
