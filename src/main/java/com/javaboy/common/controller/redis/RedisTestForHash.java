@@ -1,7 +1,8 @@
 package com.javaboy.common.controller.redis;
 
 import cn.hutool.core.util.IdUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,35 +17,36 @@ import java.util.Set;
  **/
 @RestController
 @RequestMapping("/redisHash")
+@RequiredArgsConstructor
+@Slf4j
 public class RedisTestForHash {
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
 
-    private final static String KEY="hh";
+    private final StringRedisTemplate stringRedisTemplate;
+
+    private static final String KEY = "hh";
 
     @RequestMapping("/add")
     public String test() {
         String value = IdUtil.simpleUUID();
         stringRedisTemplate.opsForZSet().add(KEY, value, System.currentTimeMillis());
         String key2 = IdUtil.simpleUUID();
-        System.out.println(key2);
+        log.info(key2);
         String value2 = IdUtil.simpleUUID();
-        System.out.println(value2);
+        log.info(value2);
         stringRedisTemplate.opsForZSet().add(KEY, value2, System.currentTimeMillis());
         return "ok";
     }
 
 
-
     @RequestMapping("/del")
     public String test2(String val) {
-        stringRedisTemplate.opsForZSet().remove("hh",val);
+        stringRedisTemplate.opsForZSet().remove("hh", val);
         return "ok";
     }
 
 
     @RequestMapping("/addTwo")
-    public String test3(String val){
+    public String test3(String val) {
         stringRedisTemplate.opsForZSet().add(KEY, val, System.currentTimeMillis());
         return "ok";
     }
@@ -53,11 +55,11 @@ public class RedisTestForHash {
     @RequestMapping("/delAll")
     public String test2() {
         //50秒
-        long now =System.currentTimeMillis()-50000;
-        Set<String> strings = stringRedisTemplate.opsForZSet().rangeByScore(KEY, 0,now);
-        Optional.ofNullable(strings).orElse(new HashSet<>()).forEach(string->{
-            stringRedisTemplate.opsForZSet().remove(KEY,string);
-            System.out.println(string);
+        long now = System.currentTimeMillis() - 50000;
+        Set<String> strings = stringRedisTemplate.opsForZSet().rangeByScore(KEY, 0, now);
+        Optional.ofNullable(strings).orElse(new HashSet<>()).forEach(string -> {
+            stringRedisTemplate.opsForZSet().remove(KEY, string);
+            log.info(string);
         });
         return "ok";
     }
