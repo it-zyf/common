@@ -20,17 +20,17 @@ public class RedisTestForHash {
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
-    private final String key="hh";
+    private final static String KEY="hh";
 
     @RequestMapping("/add")
     public String test() {
         String value = IdUtil.simpleUUID();
-        stringRedisTemplate.opsForZSet().add(key, value, System.currentTimeMillis());
+        stringRedisTemplate.opsForZSet().add(KEY, value, System.currentTimeMillis());
         String key2 = IdUtil.simpleUUID();
         System.out.println(key2);
         String value2 = IdUtil.simpleUUID();
         System.out.println(value2);
-        stringRedisTemplate.opsForZSet().add(key, value2, System.currentTimeMillis());
+        stringRedisTemplate.opsForZSet().add(KEY, value2, System.currentTimeMillis());
         return "ok";
     }
 
@@ -45,18 +45,18 @@ public class RedisTestForHash {
 
     @RequestMapping("/addTwo")
     public String test3(String val){
-        stringRedisTemplate.opsForZSet().add(key, val, System.currentTimeMillis());
+        stringRedisTemplate.opsForZSet().add(KEY, val, System.currentTimeMillis());
         return "ok";
     }
 
 
     @RequestMapping("/delAll")
     public String test2() {
-        //两分钟
+        //50秒
         long now =System.currentTimeMillis()-50000;
-        Set<String> strings = stringRedisTemplate.opsForZSet().rangeByScore(key, 0,now);
+        Set<String> strings = stringRedisTemplate.opsForZSet().rangeByScore(KEY, 0,now);
         Optional.ofNullable(strings).orElse(new HashSet<>()).forEach(string->{
-            stringRedisTemplate.opsForZSet().remove(key,string);
+            stringRedisTemplate.opsForZSet().remove(KEY,string);
             System.out.println(string);
         });
         return "ok";
