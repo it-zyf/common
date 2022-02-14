@@ -19,7 +19,7 @@ import java.util.Set;
 @RequestMapping("/redisHash")
 @RequiredArgsConstructor
 @Slf4j
-public class RedisTestForHash {
+public class RedisTestForZSet {
 
     private final StringRedisTemplate stringRedisTemplate;
 

@@ -2,7 +2,7 @@ package com.javaboy.common.controller.remote;
 
 import com.javaboy.common.api.ResponseMsg;
 import com.javaboy.common.service.remote.RemoteService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("/remote")
+@RequiredArgsConstructor
+@SuppressWarnings("rawtypes")
 public class RemoteController {
-    @Autowired
-    private RemoteService remoteService;
+
+    private final RemoteService remoteService;
 
     @RequestMapping("/dict")
     public ResponseMsg remote(){

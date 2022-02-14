@@ -12,6 +12,7 @@ import retrofit2.http.POST;
  * @create: 2022-01-29 11:00
  **/
 @RetrofitClient(baseUrl = "http://localhost:8081")
+@SuppressWarnings("rawtypes")
 public interface HttpApi {
     @GET("/alltesting/b/common/dict")
     ResponseMsg getStaticDictInfo();

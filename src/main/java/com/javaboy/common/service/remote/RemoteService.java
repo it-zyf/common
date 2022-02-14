@@ -2,7 +2,7 @@ package com.javaboy.common.service.remote;
 
 import com.javaboy.common.api.ResponseMsg;
 import com.javaboy.common.controller.remote.DtoRole;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
  * @create: 2022-01-29 11:04
  **/
 @Service
+@RequiredArgsConstructor
+@SuppressWarnings("rawtypes")
 public class RemoteService {
-    @Autowired
-    HttpApi httpApi;
+
+    private final HttpApi httpApi;
 
     public ResponseMsg getStaticDictInfo() {
         return httpApi.getStaticDictInfo();
