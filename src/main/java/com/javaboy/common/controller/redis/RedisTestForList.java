@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author: zyf
@@ -34,8 +35,18 @@ public class RedisTestForList {
         String toke3 = IdUtil.simpleUUID();
         stringRedisTemplate.opsForValue().set(toke3,"1");
         stringRedisTemplate.opsForList().leftPush("1",toke3);
+
+        stringRedisTemplate.expire("1",10, TimeUnit.SECONDS);
         return "ok";
     }
+
+
+    @RequestMapping("/expire")
+    public String expire() {
+        stringRedisTemplate.expire("1",10, TimeUnit.SECONDS);
+        return "ok";
+    }
+
 
 
     @RequestMapping("/query")
