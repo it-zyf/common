@@ -1,6 +1,7 @@
 package com.javaboy.common.everyTest;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
@@ -53,21 +54,32 @@ public class Test12 {
 
     @Test
     public void test3() {
-        String str = "11,12,13,1101,1102,1201,1301";
-        List<String> collect = Arrays.stream(str.split(",")).map(String::valueOf).filter(l -> l.length() == 2).collect(Collectors.toList());
         ArrayList<List<String>> lists = new ArrayList<>();
-        for (String s : collect) {
-            ArrayList<String> strings = new ArrayList<>();
-            String[] split = str.split(",");
-            for (int i = 0; i < split.length; i++) {
-                String substring = split[i].substring(0, 2);
-                if (s.equals(split[i].substring(0, 2))) {
-                    strings.add(split[i]);
-                }
-            }
-            lists.add(strings);
+        String str = "11,12,13,1101,1102,1201,1301";
+        String[] split = str.split(",");
+        List<String> list = Arrays.asList(split);
+        Map<String, List<String>> collect = list.stream().collect(Collectors.groupingBy(s -> s.substring(0, 2)));
+        if(CollUtil.isNotEmpty(collect)){
+            Collection<List<String>> values = collect.values();
+            System.out.println(values);
+
         }
-        System.out.println(lists);
+        System.out.println(collect);
+
+//        List<String> collect = Arrays.stream(str.split(",")).map(String::valueOf).filter(l -> l.length() == 2).collect(Collectors.toList());
+//        ArrayList<List<String>> lists = new ArrayList<>();
+//        for (String s : collect) {
+//            ArrayList<String> strings = new ArrayList<>();
+//            String[] split = str.split(",");
+//            for (int i = 0; i < split.length; i++) {
+//                String substring = split[i].substring(0, 2);
+//                if (s.equals(split[i].substring(0, 2))) {
+//                    strings.add(split[i]);
+//                }
+//            }
+//            lists.add(strings);
+//        }
+//        System.out.println(lists);
     }
 
     @Test
