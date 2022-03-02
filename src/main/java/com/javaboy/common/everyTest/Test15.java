@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.*;
 
 /**
@@ -53,5 +54,16 @@ public class Test15 {
         taskExe.shutdown();
         //打印: 100
         System.out.println(count);
+    }
+
+    @Test
+    public void test2() {
+        ArrayList<String> list =new ArrayList<>();
+        if(list==null){
+            System.out.println(123);
+        }
+        Optional.ofNullable(list).orElse(new ArrayList<>()).forEach(s -> {
+            System.out.println(11);
+        });
     }
 }
