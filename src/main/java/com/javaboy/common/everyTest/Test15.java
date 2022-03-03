@@ -1,8 +1,11 @@
 package com.javaboy.common.everyTest;
 
 
+import cn.hutool.core.lang.Assert;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.junit.Test;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +19,8 @@ import java.util.concurrent.*;
  * @author: zyf
  * @create: 2022-03-02 10:18
  **/
+@RestController
+@RequestMapping("test15")
 public class Test15 {
     //线程池最好作为全局变量, 若作为局部变量记得用完后shutdown()
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("thread-start-runner-%d").build();
@@ -66,4 +71,11 @@ public class Test15 {
             System.out.println(11);
         });
     }
+    @RequestMapping("/test")
+    public String test3() {
+        ArrayList<String> list = new ArrayList<>();
+        Assert.notNull(list,"查询列表数据不能为空");
+        return "ok";
+    }
+
 }
