@@ -1,6 +1,7 @@
 package com.javaboy.common.everyTest;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.javaboy.common.entity.Level;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,18 @@ public class Test14 {
 
     @Test
     public void test(){
-        String s = IdUtil.simpleUUID();
-        System.out.println(s);
+        for (int i = 0; i < 10; i++) {
+            String s = IdUtil.simpleUUID();
+            System.out.println(s);
+        }
     }
+
+    @Test
+    public void test2(){
+        Integer a =null;
+        if(ObjectUtil.isNotNull(a)){
+            System.out.println("hh");
+        }
+    }
+
 }

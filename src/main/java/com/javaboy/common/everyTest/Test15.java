@@ -2,11 +2,16 @@ package com.javaboy.common.everyTest;
 
 
 import cn.hutool.core.lang.Assert;
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.extra.qrcode.QrCodeUtil;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -76,6 +81,26 @@ public class Test15 {
         ArrayList<String> list = new ArrayList<>();
         Assert.notNull(list,"查询列表数据不能为空");
         return "ok";
+    }
+
+
+    @RequestMapping(value = "/getLoginQr" ,method = RequestMethod.GET)
+    public void createCodeImg(HttpServletRequest request, HttpServletResponse response){
+        response.setHeader("Pragma", "No-cache");
+        response.setHeader("Cache-Control", "no-cache");
+
+        response.setDateHeader("Expires", 0);
+        response.setContentType("image/jpeg");
+        try {
+            //这里没啥操作 就是生成一个UUID插入 数据库的表里
+            String uuid = IdUtil.simpleUUID();
+            response.setHeader("uuid", uuid);
+            // 这里是开源工具类 hutool里的QrCodeUtil
+            // 网址：http://hutool.mydoc.io/
+            QrCodeUtil.generate(uuid, 300, 300, "jpg",response.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
