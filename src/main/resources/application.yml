@@ -35,3 +35,6 @@ pagehelper:                #分页插件
   params:
 test:
   hh: hh
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
