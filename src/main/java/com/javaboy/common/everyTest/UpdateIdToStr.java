@@ -15,12 +15,12 @@ import java.util.List;
  **/
 public class UpdateIdToStr {
 
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://10.203.173.232:2390/local_portal_dev";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DB_URL = "jdbc:mysql://10.203.173.232:2390/local_portal_dev";
 
 
-    static final String USER = "local_portal_dev";
-    static final String PASS = "5807bcec19e90daa";
+    private static final String USER = "local_portal_dev";
+    private static final String PASS = "5807bcec19e90daa";
 
     public static void main(String[] args) {
         Connection conn = null;
