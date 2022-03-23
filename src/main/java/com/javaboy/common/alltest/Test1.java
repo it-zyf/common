@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sun.misc.BASE64Decoder;
@@ -11,7 +11,7 @@ import java.io.*;
 /**
  * @author yayu
  * @title: Test
- * @description: TODO
+ * @description: 获取图片
  * @date 2021/1/18 14:20
  */
 @Controller

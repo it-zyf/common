@@ -1,8 +1,9 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import org.junit.Test;
 
 /**
+ *
  * @author: zyf
  * @create: 2022-03-21 15:19
  **/

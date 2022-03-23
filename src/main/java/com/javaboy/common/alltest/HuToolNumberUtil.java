@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import cn.hutool.core.util.NumberUtil;
 import org.junit.Test;

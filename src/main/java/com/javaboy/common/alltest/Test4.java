@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

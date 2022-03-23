@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import com.javaboy.common.entity.Bean;
 import org.apache.commons.collections4.CollectionUtils;

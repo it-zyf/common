@@ -1,10 +1,13 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import cn.hutool.core.date.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 集合操作
+ */
 public class Test {
     @org.junit.Test
     public void test1() {

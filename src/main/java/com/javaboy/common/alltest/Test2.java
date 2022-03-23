@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

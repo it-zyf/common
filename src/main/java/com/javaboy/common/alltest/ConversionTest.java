@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import com.javaboy.common.util.ReadUtil;
 import org.junit.Test;

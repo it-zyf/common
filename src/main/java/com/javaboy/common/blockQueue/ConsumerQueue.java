@@ -11,6 +11,7 @@ import java.util.concurrent.BlockingQueue;
  **/
 @Async
 public class ConsumerQueue implements Runnable{
+
     private final BlockingQueue<String> conQueue;
 
     public ConsumerQueue(BlockingQueue conQueue) {

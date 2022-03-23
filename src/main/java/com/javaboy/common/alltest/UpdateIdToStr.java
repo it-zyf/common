@@ -1,4 +1,4 @@
-package com.javaboy.common.everyTest;
+package com.javaboy.common.alltest;
 
 import cn.hutool.core.util.IdUtil;
 import com.javaboy.common.util.ReadUtil;
