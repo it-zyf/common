@@ -152,6 +152,6 @@ public class ConvertTree<T> {
                 e.printStackTrace();
             }
         }
-        throw new RuntimeException("获取属性值失败");
+        throw new UnsupportedOperationException("获取属性值失败");
     }
 }

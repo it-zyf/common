@@ -1,10 +1,13 @@
 package com.javaboy.common.everyTest;
 
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.javaboy.common.constant.CodeConstant;
+import com.javaboy.common.exception.CustomException;
 import org.junit.Test;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -82,6 +85,17 @@ public class Test15 {
         Assert.notNull(list,"查询列表数据不能为空");
         return "ok";
     }
+
+    @RequestMapping("/test2")
+    public String test4() throws CustomException {
+        ArrayList<String> list = new ArrayList<>();
+        if(CollUtil.isEmpty(list)){
+            throw new CustomException(CodeConstant.FAIL,"数据异常");
+        }
+        return "ok";
+    }
+
+
 
 
     @RequestMapping(value = "/getLoginQr" ,method = RequestMethod.GET)

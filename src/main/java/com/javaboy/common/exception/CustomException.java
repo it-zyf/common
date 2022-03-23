@@ -2,13 +2,10 @@ package com.javaboy.common.exception;
 
 import java.io.Serializable;
 
-/**
- *
- * @author yangjunguo
- * @date 21/6/9
- * 自定义的系统业务异常
- */
 
+/**
+ * @author v-zhangyafeng3
+ */
 public class CustomException extends Exception implements Serializable{
 
     private int code = 0;

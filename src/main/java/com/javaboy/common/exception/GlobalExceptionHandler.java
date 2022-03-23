@@ -14,12 +14,18 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  **/
 @RestControllerAdvice
 @Slf4j
+@SuppressWarnings({"rawtypes"})
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
     @ResponseBody
     public ResponseMsg handleValidException(Exception e) {
-        log.error("参数校验失败:" + e.getMessage());
+        if(e instanceof CustomException){
+            CustomException ex = (CustomException)e;
+            log.error("业务异常:{}",ex.getMsg(),e);
+            return ResponseMsg.fail(ex.getCode(), ex.getMessage());
+        }
+        log.error("系统异常:{}", e.getMessage());
         return ResponseMsg.fail(CodeConstant.FAIL, e.getMessage());
 
     }
