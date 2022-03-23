@@ -1,4 +1,4 @@
-package com.javaboy.common.blockQueue;
+package com.javaboy.common.blockqueue;
 
 import org.springframework.scheduling.annotation.Async;
 
