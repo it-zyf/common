@@ -3,6 +3,7 @@ package com.javaboy.common.entity;
 import lombok.Data;
 
 import javax.validation.constraints.*;
+import java.io.Serializable;
 
 /**
  * @author yayu
@@ -11,7 +12,7 @@ import javax.validation.constraints.*;
  * @date 2021/2/2 14:09
  */
 @Data
-public class User {
+public class User implements Serializable {
     private String id;
     @NotNull(message = "名字不能为空")
     @Size(min = 2,message = "名字长度至少是两位")

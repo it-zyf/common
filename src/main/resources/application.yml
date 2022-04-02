@@ -28,6 +28,9 @@ spring:
     port: 25
     username: 761769578@qq.com
     password: 123
+  elasticsearch:
+    rest:
+      uris: localhost:9200
 pagehelper:                #分页插件
   helper-dialect: mysql
   reasonable: true
