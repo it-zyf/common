@@ -4,31 +4,40 @@ package com.javaboy.common.config;
  * @author: zyf
  * @create: 2021-09-24 09:54
  **/
+
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
-//@Configuration
+@Configuration
 public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory redisConnectionFactory){
-        RedisTemplate<String, String> redisTemplate = new RedisTemplate();
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
-        redisTemplate.setKeySerializer(redisKeySerializer());
-        redisTemplate.setValueSerializer(redisKeySerializer());
-        redisTemplate.setHashKeySerializer(redisKeySerializer());
-        redisTemplate.setDefaultSerializer(redisKeySerializer());
-        redisTemplate.afterPropertiesSet();
-        return redisTemplate;
-    }
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
 
-    @Bean
-    public RedisSerializer<?> redisKeySerializer() {
-        return new StringRedisSerializer();
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+
+        template.setConnectionFactory(redisConnectionFactory);
+
+        // string序列化方式
+
+        RedisSerializer serializer = new GenericJackson2JsonRedisSerializer();
+
+        // 设置默认序列化方式
+
+        template.setDefaultSerializer(serializer);
+
+        template.setKeySerializer(new StringRedisSerializer());
+
+        template.setHashValueSerializer(serializer);
+
+
+        return template;
     }
 
 
