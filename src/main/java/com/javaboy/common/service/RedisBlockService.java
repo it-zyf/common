@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @author: zyf
  * @create: 2022-04-02 10:52
@@ -24,18 +26,18 @@ public class RedisBlockService {
     @Autowired
     private RedisTemplate redis;
 
-    private static final String REDIS_MQ = "redisMQ";
+    private static final String REDIS_MQ = "data_for_es";
 
     /**
      * 发送消息到队列头部
      *
-     * @param user
+     * @param map
      */
-    public void sendMessage(User user) {
-        RBlockingDeque<User> blockingDeque = redissonClient.getBlockingDeque(REDIS_MQ);
+    public void sendMessage(Map map) {
+        RBlockingDeque<Map> blockingDeque = redissonClient.getBlockingDeque(REDIS_MQ);
         try {
-            blockingDeque.putFirst(user);
-            log.info("将消息: {} 插入到队列。", user);
+            blockingDeque.putFirst(map);
+            log.info("将消息: {} 插入到队列。", map);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
