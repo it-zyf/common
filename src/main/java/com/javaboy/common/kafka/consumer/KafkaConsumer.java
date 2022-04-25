@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class KafkaConsumer {
     @KafkaListener(topics = "sendMsg")
     public void listen(ConsumerRecord<?,?> record) {
-        System.out.println(record.topic());
         System.out.println(record.value());
     }
+
 }

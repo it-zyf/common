@@ -1,6 +1,6 @@
 package com.javaboy.common.kafka;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("/kafka")
+@RequiredArgsConstructor
 public class SimpleTest {
 
-    @Autowired
-    private  KafkaTemplate<Object, Object> kafkaTemplate;
+    private final KafkaTemplate<Object, Object> kafkaTemplate;
+
 
     @GetMapping("/send/{msg}")
-    public String simpleTest(@PathVariable("msg") String msg) {
-        kafkaTemplate.send("sendMsg",  msg);
+    public String simpleTest(@PathVariable("msg") String msg)  {
+        kafkaTemplate.send("sendMsg", msg);
         return "send ok";
     }
 
