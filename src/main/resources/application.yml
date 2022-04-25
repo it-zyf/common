@@ -31,6 +31,17 @@ spring:
   elasticsearch:
     rest:
       uris: localhost:9200
+  kafka:
+    consumer:
+      group-id: test
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      client-id: 123321
+    producer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      bootstrap-servers: localhost:9092
 pagehelper:                #分页插件
   helper-dialect: mysql
   reasonable: true

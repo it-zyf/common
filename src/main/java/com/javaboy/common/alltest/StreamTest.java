@@ -1,7 +1,7 @@
 package com.javaboy.common.alltest;
 
+import cn.hutool.core.collection.CollUtil;
 import com.javaboy.common.entity.Bean;
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class StreamTest {
         List<String> repeatCode = list.stream().collect(Collectors.groupingBy(Bean::getCode, Collectors.counting())).entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList());
         System.out.println("repeatCode = " + repeatCode);
         System.out.println("list = " + list);
-        if (CollectionUtils.isNotEmpty(repeatCode)) {
+        if (CollUtil.isNotEmpty(repeatCode)) {
             repeatCode.forEach(merId -> extractRepeat(list, merId));
         }
         System.out.println("list = " + list);

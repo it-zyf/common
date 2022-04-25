@@ -13,6 +13,9 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 
 
+/**
+ * @author zyf
+ */
 @SpringBootApplication
 @MapperScan("com.javaboy.common.mapper")
 @EnableOpenApi
