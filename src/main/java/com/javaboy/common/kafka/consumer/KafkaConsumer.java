@@ -1,6 +1,7 @@
 package com.javaboy.common.kafka.consumer;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class KafkaConsumer {
     @KafkaListener(topics = "sendMsg")
-    public void listen(String msg) {
-        System.out.println(msg);
+    public void listen(ConsumerRecord<?,?> record) {
+        System.out.println(record.topic());
+        System.out.println(record.value());
     }
 }
