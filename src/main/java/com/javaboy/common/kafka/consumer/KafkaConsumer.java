@@ -15,6 +15,7 @@ public class KafkaConsumer {
     @KafkaListener(topics = "sendMsg")
     public void listen(ConsumerRecord<?,?> record) {
         System.out.println(record.value());
+        System.out.println(record.topic());
     }
 
 }
