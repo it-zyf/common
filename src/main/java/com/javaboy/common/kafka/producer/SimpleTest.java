@@ -1,4 +1,4 @@
-package com.javaboy.common.kafka;
+package com.javaboy.common.kafka.producer;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;

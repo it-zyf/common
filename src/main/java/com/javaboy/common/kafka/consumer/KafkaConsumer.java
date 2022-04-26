@@ -32,7 +32,7 @@ public class KafkaConsumer {
 
     @ApiOperation("kafka 消费canal监听数据")
     @KafkaListener(groupId = "test",topics = "canal_kafka")
-    public void handleDataChange(String message){
+    public void listenDataChange(String message){
         //将message转换为CanalMessage
         CanalMessage canalMessage = JSONUtil.toBean(message, CanalMessage.class);
         String tableName = canalMessage.getTable();
