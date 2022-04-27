@@ -24,14 +24,14 @@ public class KafkaConsumer {
     private static final String DELETE="delete";
 
     @ApiOperation("kafka消费")
-    @KafkaListener(topics = "sendMsg")
+    @KafkaListener(topics = "sendMsg",groupId = "1")
     public void listen(ConsumerRecord<?, ?> record) {
         System.out.println(record.value());
         System.out.println(record.topic());
     }
 
     @ApiOperation("kafka 消费canal监听数据")
-    @KafkaListener(groupId = "test",topics = "canal_kafka")
+    @KafkaListener(topics = "canal_kafka",groupId = "2")
     public void listenDataChange(String message){
         //将message转换为CanalMessage
         CanalMessage canalMessage = JSONUtil.toBean(message, CanalMessage.class);
