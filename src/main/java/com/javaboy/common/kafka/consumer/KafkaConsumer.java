@@ -27,7 +27,6 @@ public class KafkaConsumer {
     @KafkaListener(topics = "sendMsg",groupId = "1")
     public void listen(ConsumerRecord<?, ?> record) {
         System.out.println(record.value());
-        System.out.println(record.topic());
     }
 
     @ApiOperation("kafka 消费canal监听数据")
