@@ -6,7 +6,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.Optional;
  * @author: zyf
  * @create: 2022-04-25 10:04
  **/
-@Component
+//@Component
 @Slf4j
 @SuppressWarnings("rawtypes")
 public class KafkaConsumer {

@@ -4,13 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.support.ProducerListener;
-import org.springframework.stereotype.Component;
 
 /**
  * @author: zyf
  * @create: 2022-04-27 10:48
  **/
-@Component
+//@Component
 @Slf4j
 public class KafkaSendResultHandler implements ProducerListener<Object,Object> {
     @Override
