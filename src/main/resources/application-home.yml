@@ -1,0 +1,55 @@
+server:
+  port: 9009
+logging:
+  level:
+    com.javaboy.common.mapper: debug  #dao的路径
+  config: src\main\resources\logback.xml #配不配效果好像都一样.
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
+          username: root
+          password: root
+        slave_1:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://123.57.39.161:3306/alltesting?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
+          username: root
+          password: root
+  redis:
+    port: 6379
+    host: localhost
+  mail:
+    host: smtp.qq.com
+    port: 25
+    username: 761769578@qq.com
+    password: 123
+  elasticsearch:
+    rest:
+      uris: localhost:9200
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      bootstrap-servers: localhost:9092
+      max-poll-records: 500
+      properties:
+        max.poll.interval.ms: 600000
+    producer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      bootstrap-servers: localhost:9092
+pagehelper:                #分页插件
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+test:
+  hh: hh
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
