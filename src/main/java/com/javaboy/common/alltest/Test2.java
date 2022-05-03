@@ -1,7 +1,6 @@
 package com.javaboy.common.alltest;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import org.springframework.util.Base64Utils;
 
 import java.io.*;
 
@@ -22,10 +21,9 @@ public class Test2 {
     public static boolean base64StrToImage(String imgStr, String path) {
         if (imgStr == null)
             return false;
-        BASE64Decoder decoder = new BASE64Decoder();
         try {
             // 解密base64图片字符串
-            byte[] b = decoder.decodeBuffer(imgStr);
+            byte[] b =  Base64Utils.decodeFromString(imgStr);
             // 处理数据,把负的byte字节数据改为正的,作用未知
             for (int i = 0; i < b.length; ++i) {
                 if (b[i] < 0) {
@@ -63,8 +61,7 @@ public class Test2 {
             e.printStackTrace();
         }
         //将图片数组加密
-        BASE64Encoder encoder = new BASE64Encoder();
-        return encoder.encode(data);
+        return Base64Utils.encodeToString(data);
     }
 
     public static void main(String[] args) {

@@ -1,9 +1,9 @@
 package com.javaboy.common.controller.redis;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.ObjectUtils;
@@ -80,7 +80,7 @@ public class RedisTestForZSet {
     @RequestMapping("/getAll")
     public String test5() {
         Set<String> se = stringRedisTemplate.opsForZSet().range("user_token_set_e4f45a2b0e735823dda63990ebdc856b", System.currentTimeMillis() - 21600000, System.currentTimeMillis());
-        if (CollectionUtils.isEmpty(se) || !se.contains("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlNGY0NWEyYjBlNzM1ODIzZGRhNjM5OTBlYmRjODU2YiIsInN1YiI6IuW8gOWPkUIiLCJpYXQiOjE2NDU1MTc1NDJ9.CEjJB1zg5PE-t-ls5NGcENBgSXEq2RnMRpptonT3d6k")) {
+        if (CollUtil.isEmpty(se) || !se.contains("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlNGY0NWEyYjBlNzM1ODIzZGRhNjM5OTBlYmRjODU2YiIsInN1YiI6IuW8gOWPkUIiLCJpYXQiOjE2NDU1MTc1NDJ9.CEjJB1zg5PE-t-ls5NGcENBgSXEq2RnMRpptonT3d6k")) {
             return "no";
         }
         return "yes";

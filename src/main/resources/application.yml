@@ -20,9 +20,9 @@ spring:
           username: root
           password: root
   redis:
-    host: localhost
-    port: 6379
-    database: 0
+    port: 1319
+    host: 10.203.151.157
+    password: 7327a98f77407e63
   mail:
     host: smtp.qq.com
     port: 25
@@ -31,6 +31,19 @@ spring:
   elasticsearch:
     rest:
       uris: localhost:9200
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      bootstrap-servers: localhost:9092
+      max-poll-records: 500
+      properties:
+        max.poll.interval.ms: 600000
+    producer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      bootstrap-servers: localhost:9092
 pagehelper:                #分页插件
   helper-dialect: mysql
   reasonable: true
