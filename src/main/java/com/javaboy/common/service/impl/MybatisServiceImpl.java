@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.javaboy.common.controller.page.Teacher;
 import com.javaboy.common.mapper.MybatisMapper;
 import com.javaboy.common.service.MybatisService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,13 +15,14 @@ import java.util.Map;
 /**
  * @author yayu
  * @title: MybatisServiceImpl
- * @description: TODO
+ * @description:
  * @date 2022/1/16 14:43
  */
 @Service
+@RequiredArgsConstructor
 public class MybatisServiceImpl implements MybatisService {
-    @Autowired
-    private MybatisMapper mybatisMapper;
+
+    private final MybatisMapper mybatisMapper;
 
 
     @Override
