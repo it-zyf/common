@@ -6,6 +6,6 @@ package com.javaboy.common.util;
  */
 public class Btest {
     public static void main(String[] args) {
-        System.out.println("我是test分支2");
+        System.out.println("我是test分支23");
     }
 }
