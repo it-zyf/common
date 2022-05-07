@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * @author yayu
  * @title: Mybatisservice
- * @description: TODO
+ * @description:
  * @date 2022/1/16 14:42
  */
 public interface MybatisService {

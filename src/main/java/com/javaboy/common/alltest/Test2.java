@@ -7,13 +7,13 @@ import java.io.*;
 /**
  * @author yayu
  * @title: Test2
- * @description: TODO
+ * @description:
  * @date 2021/1/19 16:48
  */
 public class Test2 {
     /**
      * 将base64字符串转成图片
-     * TODO
+     *
      * @param imgStr base64图片字符串
      * @param path 目标输出路径
      * @return

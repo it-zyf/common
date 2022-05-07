@@ -27,7 +27,7 @@ public class ConsumerQueue implements Runnable{
                 //休眠一下方便看的更清楚
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
+                //   Auto-generated catch block
                 e.printStackTrace();
             }
 

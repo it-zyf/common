@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * @author yayu
  * @title: ValidatedController
- * @description: TODO springboot中的字段校验 前端的数据校验是为了用户体验,后端接口的校验才是为了数据完整性.
+ * @description:   springboot中的字段校验 前端的数据校验是为了用户体验,后端接口的校验才是为了数据完整性.
  * @date 2021/2/2 14:14
  */
 @RestController

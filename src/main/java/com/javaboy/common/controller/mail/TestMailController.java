@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author yayu
  * @title: TestMailController
- * @description: TODO
+ * @description:
  * @date 2021/9/12 12:19
  */
 @RestController

@@ -22,7 +22,7 @@ public class ProductQueue implements Runnable {
 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
+        //   Auto-generated method stub
         for (int i = 0; i < 10; i++) {
             try {
                 //放入10瓶可乐 编号为0到9 也就是1-10 i初始单位为0
@@ -30,7 +30,7 @@ public class ProductQueue implements Runnable {
                 System.out.println("生产的可乐编号为："+i);
                 proQueue.put(i);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
+                //   Auto-generated catch block
                 e.printStackTrace();
             }
         }

@@ -14,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 /**
  * @author yayu
  * @title: SwaggerConfig
- * @description: TODO Swagger2 配置
+ * @description:   Swagger2 配置
  * @date 2021/1/28 10:58
  */
 @Configuration

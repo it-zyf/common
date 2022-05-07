@@ -6,7 +6,7 @@ import io.github.yedaxia.apidocs.DocsConfig;
 /**
  * @author yayu
  * @title: TestController
- * @description: TODO 干掉swagger
+ * @description:   干掉swagger
  * @date 2021/2/19 9:57
  */
 public class TestController {

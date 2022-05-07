@@ -3,7 +3,7 @@ package com.javaboy.common.service;
 /**
  * @author yayu
  * @title: SendMailService
- * @description: TODO
+ * @description:
  * @date 2021/9/12 12:20
  */
 public interface SendMailService {

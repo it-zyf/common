@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author yayu
  * @title: TypeHader
- * @description: TODO 自定义的一个typehader 用来做数据库类型转换. list to varchar
+ * @description:   自定义的一个typehader 用来做数据库类型转换. list to varchar
  * @date 2021/3/3 16:47
  */
 @MappedJdbcTypes(JdbcType.VARCHAR)

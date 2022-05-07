@@ -5,7 +5,7 @@ import com.alibaba.druid.filter.config.ConfigTools;
 /**
  * @author yayu
  * @title: DruidConfig
- * @description: TODO
+ * @description:
  * @date 2021/3/5 11:10
  */
 public class DruidConfig {
