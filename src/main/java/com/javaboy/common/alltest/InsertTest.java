@@ -4,6 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import com.javaboy.common.util.ReadUtil;
 
 import java.sql.*;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class InsertTest {
 
         public static void main(String[] args) {
             Connection conn = null;
-            Statement stmt = null;
+            PreparedStatement stmt = null;
             try{
                 //STEP 2: Register JDBC driver
                 Class.forName(JDBC_DRIVER);
@@ -37,15 +38,15 @@ public class InsertTest {
                 for (String s : date) {
                     String id = IdUtil.simpleUUID();
                     String roleId="4f1b1f81512e466e8a2220f30595d1b0";
-                    String sql = "insert into function_copy1 (id, user_id, role_id, function_id, create_time) VALUES (?,?,?,?,?)";
-                    PreparedStatement preparedStatement = conn.prepareStatement(sql);
-                    preparedStatement.setString(1,id);
-                    preparedStatement.setString(2,null);
-                    preparedStatement.setString(3,roleId);
-                    preparedStatement.setString(4,s);
-                    preparedStatement.setDate(5, new Date(System.currentTimeMillis()));
+                    String sql = "insert into `function` (id, user_id, role_id, function_id, create_time) VALUES (?,?,?,?,?)";
+                    stmt = conn.prepareStatement(sql);
+                    stmt.setString(1,id);
+                    stmt.setString(2,null);
+                    stmt.setString(3,roleId);
+                    stmt.setString(4,s);
+                    stmt.setDate(5, new Date(System.currentTimeMillis()));
                     System.out.println(sql);
-                    preparedStatement.executeUpdate();
+                    stmt.executeUpdate();
                 }
                 System.out.println("Inserted records into the table...");
 
@@ -67,6 +68,7 @@ public class InsertTest {
                     if(conn!=null) {
                         conn.close();
                     }
+
                 }catch(SQLException se){
                     se.printStackTrace();
                 }
@@ -81,7 +83,7 @@ public class InsertTest {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return null;
+            return Collections.emptyList();
         }
     }
 
