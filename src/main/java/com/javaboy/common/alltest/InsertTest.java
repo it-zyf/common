@@ -1,11 +1,9 @@
 package com.javaboy.common.alltest;
 
+import cn.hutool.core.util.IdUtil;
 import com.javaboy.common.util.ReadUtil;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -15,11 +13,11 @@ import java.util.List;
 public class InsertTest {
 
         static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-        static final String DB_URL = "jdbc:mysql://10.203.173.232:2390/alltesting";
+        static final String DB_URL = "jdbc:mysql://10.203.173.232:2390/local_portal_dev";
 
 
-        static final String USER = "alltesting";
-        static final String PASS = "05f7e7cd1b292f9a";
+        static final String USER = "local_portal_dev";
+        static final String PASS = "5807bcec19e90daa";
 
         public static void main(String[] args) {
             Connection conn = null;
@@ -35,12 +33,19 @@ public class InsertTest {
 
                 //STEP 4: Execute a query
                 System.out.println("Inserting records into the table...");
-                stmt = conn.createStatement();
                 final List<String> date = ReadUtil.getFileContext("D:\\123.txt");
                 for (String s : date) {
-                    String sql = "INSERT INTO role_function " +
-                            "VALUES (null, 1, "+s+")";
-                    stmt.executeUpdate(sql);
+                    String id = IdUtil.simpleUUID();
+                    String roleId="4f1b1f81512e466e8a2220f30595d1b0";
+                    String sql = "insert into function_copy1 (id, user_id, role_id, function_id, create_time) VALUES (?,?,?,?,?)";
+                    PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                    preparedStatement.setString(1,id);
+                    preparedStatement.setString(2,null);
+                    preparedStatement.setString(3,roleId);
+                    preparedStatement.setString(4,s);
+                    preparedStatement.setDate(5, new Date(System.currentTimeMillis()));
+                    System.out.println(sql);
+                    preparedStatement.executeUpdate();
                 }
                 System.out.println("Inserted records into the table...");
 
