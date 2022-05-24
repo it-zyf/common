@@ -1,5 +1,6 @@
 package com.javaboy.common.alltest;
 
+import cn.hutool.core.util.ObjectUtil;
 import org.junit.Test;
 
 /**
@@ -14,5 +15,10 @@ public class Test16 {
         sb.append("zhangsan");
         sb.append(',');
         System.out.println(sb.toString());
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(ObjectUtil.notEqual("1", null));
     }
 }

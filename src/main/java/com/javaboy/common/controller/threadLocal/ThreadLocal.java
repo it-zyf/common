@@ -1,5 +1,6 @@
 package com.javaboy.common.controller.threadLocal;
 
+import com.javaboy.common.entity.User;
 import com.javaboy.common.util.ThreadLocalUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/threadLocal")
 @RestController
 public class ThreadLocal {
-    @RequestMapping("/add")
+    @RequestMapping("/query")
     public String test() {
-        ThreadLocalUtil.set("userId","1");
-        Object userId = ThreadLocalUtil.get("userId");
-        ThreadLocalUtil.remove();
-        return (String)userId;
+        User user = ThreadLocalUtil.get("user");
+        return user.getName();
     }
 
     @RequestMapping("/get")
