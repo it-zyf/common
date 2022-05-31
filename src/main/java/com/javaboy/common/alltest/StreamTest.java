@@ -45,6 +45,16 @@ public class StreamTest {
             compInfos.add(bean);//再将取出来的第一个添加进去.
         }
     }
+    public void getConditionByOne(List<Bean> list){
+        Bean bean = Optional.ofNullable(list)
+                .orElseGet(ArrayList::new)
+                .stream()
+                .filter(item -> item.getName()
+                        .equals("张三"))
+                .findAny()
+                .get();
+        System.out.println(bean);
+    }
 
 
 }
