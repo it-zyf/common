@@ -3,6 +3,9 @@ package com.javaboy.common.alltest;
 import cn.hutool.core.util.ObjectUtil;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author: zyf
@@ -11,10 +14,35 @@ import org.junit.Test;
 public class Test16 {
     @Test
     public void test(){
+        ArrayList<List<Integer>> lists = new ArrayList<>();
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(4);
+        list2.add(5);
+        list2.add(6);
+
+        ArrayList<Integer> list3 = new ArrayList<>();
+        list3.add(7);
+        list3.add(8);
+        list3.add(9);
+
+        lists.add(list1);
+        lists.add(list2);
+        lists.add(list3);
         StringBuilder sb = new StringBuilder();
-        sb.append("zhangsan");
-        sb.append(',');
-        System.out.println(sb.toString());
+        for (List<Integer> list : lists) {
+            for (Integer integer : list) {
+                sb.append(integer);
+                sb.append(",");
+            }
+            sb.replace(sb.length()-1,sb.length(),"");
+            sb.append("/");
+        }
+        System.out.println(sb);
     }
 
     @Test
