@@ -18,7 +18,7 @@ import java.util.Optional;
 public class BeanTest {
     @Test
     public void test() {
-        User user = User.builder().userName("张三").age("20").sex(1).hobby(Arrays.asList("1", "2", "3")).gay(true).build();
+        User user = User.builder().userName("张三").age("20").sex(1).hobby(Lists.newArrayList("0","1","2")).gay(true).build();
         PersonDto personDto = BeanConvertUtils.convertTo(user, PersonDto::new);
         System.out.println(personDto);
     }
