@@ -3,7 +3,6 @@ package com.javaboy.common.schedule;
 import io.lettuce.core.dynamic.support.ReflectionUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.scheduling.support.ScheduledMethodRunnable;
 import org.springframework.stereotype.Component;
@@ -21,7 +20,7 @@ public class StopTask {
 
     private int count;
 
-    @Scheduled(cron = "*/5 * * * * ?")
+    //@Scheduled(cron = "*/5 * * * * ?")
     public void stopTask() {
         count++;
         log.info("--------------------------执行内容----------------------------------------------");

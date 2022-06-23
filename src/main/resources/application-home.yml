@@ -11,7 +11,7 @@ spring:
       datasource:
         master:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
+          url: jdbc:mysql://localhost:3306/sys?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
           username: root
           password: root
         slave_1:
