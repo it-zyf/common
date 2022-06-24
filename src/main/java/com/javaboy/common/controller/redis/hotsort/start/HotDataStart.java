@@ -20,6 +20,6 @@ public class HotDataStart implements ApplicationRunner {
     private HotSortServiceImpl hotSortService;
     @Override
     public void run(ApplicationArguments args) {
-        hotSortService.initHotData();
+        //hotSortService.initHotData();
     }
 }

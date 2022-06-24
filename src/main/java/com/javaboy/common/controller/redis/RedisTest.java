@@ -1,5 +1,6 @@
 package com.javaboy.common.controller.redis;
 
+import com.javaboy.common.constant.CodeConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,5 +38,21 @@ public class RedisTest {
         redisTemplate.delete("age");
         return "ok";
     }
+
+
+    @RequestMapping("/set")
+    public void set() {
+       redisTemplate.opsForValue().set("_common_token_key","123",6,TimeUnit.HOURS);
+    }
+
+
+    @RequestMapping("/get")
+    public void get() {
+        if(Boolean.FALSE.equals(redisTemplate.hasKey("_common_token_key"))){
+            System.out.println("key 失效生成新的key ");
+            redisTemplate.opsForValue().set("_common_token_key", CodeConstant.TOKEN,6, TimeUnit.HOURS);
+        }
+    }
+
 
 }
