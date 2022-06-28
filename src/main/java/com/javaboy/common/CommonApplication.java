@@ -17,7 +17,9 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
  * @author zyf
  */
 @SpringBootApplication
-@MapperScan({"com.javaboy.common.mapper","com.javaboy.common.controller.redis.hotsort.dao.mapper"})
+@MapperScan({"com.javaboy.common.mapper",
+        "com.javaboy.common.controller.redis.hotsort.dao.mapper",
+        "com.javaboy.common.data.dao.mapper"})
 @EnableOpenApi
 @EnableAsync
 @EnableCaching

@@ -1,19 +1,17 @@
 package com.javaboy.common.alltest;
 
-import cn.hutool.core.util.ObjectUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author: zyf
  * @create: 2022-03-21 15:19
  **/
 public class Test16 {
     @Test
-    public void test(){
+    public void test() {
         ArrayList<List<Integer>> lists = new ArrayList<>();
         ArrayList<Integer> list1 = new ArrayList<>();
         list1.add(1);
@@ -39,14 +37,19 @@ public class Test16 {
                 sb.append(integer);
                 sb.append(",");
             }
-            sb.replace(sb.length()-1,sb.length(),"");
+            sb.replace(sb.length() - 1, sb.length(), "");
             sb.append("/");
         }
         System.out.println(sb);
     }
 
     @Test
-    public void test2(){
-        System.out.println(ObjectUtil.notEqual("1", null));
+    public void test2() {
+        List<String> s = new ArrayList<>();
+        s.add("123");
+    }
+
+    @Test
+    public void test3() {
     }
 }
