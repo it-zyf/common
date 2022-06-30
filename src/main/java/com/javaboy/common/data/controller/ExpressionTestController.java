@@ -2,10 +2,7 @@ package com.javaboy.common.data.controller;
 
 import com.javaboy.common.data.service.ExpressionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -24,5 +21,11 @@ public class ExpressionTestController {
     public String expression(@RequestBody Map map){
         return expressionService.save(map);
     }
+
+    @GetMapping("/query")
+    public String query(){
+        return expressionService.query();
+    }
+
 
 }

@@ -13,4 +13,11 @@ public interface ExpressionService {
      * @return
      */
     String save(Map map);
+
+    /**
+     * 查询表情
+     * @return
+     */
+    String query();
+
 }
