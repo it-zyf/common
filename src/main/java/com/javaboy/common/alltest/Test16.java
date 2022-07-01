@@ -1,5 +1,6 @@
 package com.javaboy.common.alltest;
 
+import com.javaboy.common.entity.Woman;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ public class Test16 {
 
     @Test
     public void test3() {
-
+        Woman woman = Woman.builder().age("25").build();
+        System.out.println(woman.getAge());
     }
 }
