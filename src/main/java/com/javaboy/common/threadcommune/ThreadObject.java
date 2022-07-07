@@ -44,12 +44,11 @@ public class ThreadObject {
                 }
             }
         });
-
-        //try {
-        //    Thread.sleep(1000);
-        //} catch (InterruptedException e) {
-        //    e.printStackTrace();
-        //}
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         //线程A
         threadPoolTaskExecutor.submit(() -> {
@@ -63,7 +62,7 @@ public class ThreadObject {
                         e.printStackTrace();
                     }
                     if (list.size() == 4){
-                        lock.notify();//唤醒B线程
+                        lock.notifyAll();//唤醒B线程
                     }
                 }
             }

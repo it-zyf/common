@@ -48,6 +48,7 @@ public class Test16 {
     public void test2() {
         List<String> s = new ArrayList<>();
         s.add("123");
+        System.out.println(s.size());
     }
 
     @Test
