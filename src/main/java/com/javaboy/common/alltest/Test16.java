@@ -1,5 +1,6 @@
 package com.javaboy.common.alltest;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.javaboy.common.entity.Woman;
 import org.junit.Test;
 
@@ -54,6 +55,9 @@ public class Test16 {
     @Test
     public void test3() {
         Woman woman = Woman.builder().age("25").build();
+        if(BeanUtil.isNotEmpty(woman)){
+            System.out.println(1111);
+        }
         System.out.println(woman.getAge());
     }
 }
