@@ -1,7 +1,9 @@
 package com.javaboy.common.alltest;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.javaboy.common.entity.Woman;
+import org.apache.poi.ss.formula.functions.T;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -57,7 +59,14 @@ public class Test16 {
         Woman woman = Woman.builder().age("25").build();
         if(BeanUtil.isNotEmpty(woman)){
             System.out.println(1111);
+
         }
         System.out.println(woman.getAge());
     }
+
+    @Test
+    public void test4(){
+        Page<T> tPage = new Page<>();
+    }
+
 }

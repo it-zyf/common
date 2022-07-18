@@ -5,6 +5,8 @@ package com.javaboy.common.util;
  * @create: 2022-06-06 13:50
  **/
 
+import cn.hutool.core.collection.CollUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
@@ -51,6 +53,45 @@ public class BeanConvertUtils extends BeanUtils {
     }
 
     /**
+     * 整合了mybatisPlus page 分页.
+     * @param sources
+     * @param targetSupplier
+     * @param <S>
+     * @param <T>
+     * @return
+     */
+    public static <S, T> Page<T> convertPageTo(Page<S> sources, Supplier<T> targetSupplier) {
+        return convertPageTo(sources, targetSupplier, null);
+    }
+
+    public static <S, T> Page<T> convertPageTo(Page<S> sources, Supplier<T> targetSupplier, ConvertCallBack<S, T> callBack) {
+        List<S> records = sources.getRecords();
+        Page<T> sPage = new Page<>();
+        sPage.setTotal(sources.getTotal());
+        sPage.setSize(sources.getSize());
+        sPage.setCurrent(sources.getCurrent());
+        sPage.setOrders(sources.getOrders());
+        sPage.setOptimizeCountSql(sources.optimizeCountSql());
+        sPage.setHitCount(sources.isHitCount());
+        sPage.setCountId(sources.getCountId());
+        sPage.setPages(sources.getPages());
+        if (CollUtil.isEmpty(records)) {
+            return sPage;
+        }
+        List<T> list = new ArrayList<>(records.size());
+        for (S source : records) {
+            T target = targetSupplier.get();
+            copyProperties(source, target);
+            if (callBack != null) {
+                callBack.callBack(source, target);
+            }
+            list.add(target);
+        }
+        return sPage.setRecords(list);
+
+    }
+
+    /**
      * 转换对象
      *
      * @param sources        源对象list
@@ -76,6 +117,10 @@ public class BeanConvertUtils extends BeanUtils {
         }
         return list;
     }
+
+
+
+
 
     /**
      * 回调接口
