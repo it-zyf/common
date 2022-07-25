@@ -70,10 +70,7 @@ public class BeanConvertUtils extends BeanUtils {
         sPage.setTotal(sources.getTotal());
         sPage.setSize(sources.getSize());
         sPage.setCurrent(sources.getCurrent());
-        sPage.setOrders(sources.getOrders());
         sPage.setOptimizeCountSql(sources.optimizeCountSql());
-        sPage.setHitCount(sources.isHitCount());
-        sPage.setCountId(sources.getCountId());
         sPage.setPages(sources.getPages());
         if (CollUtil.isEmpty(records)) {
             return sPage;
