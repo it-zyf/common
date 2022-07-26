@@ -1,6 +1,8 @@
 package com.javaboy.common.mybatisjoin.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.javaboy.common.api.ResponseMsg;
 import com.javaboy.common.completefuture.dao.entity.Account;
 import com.javaboy.common.mybatisjoin.dao.mapper.JoinMapper;
 import com.javaboy.common.mybatisjoin.dao.pojo.Emo;
@@ -17,7 +19,7 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-public class MybatisJoinServiceImpl implements MybatisJoinService {
+public class MybatisJoinServiceImpl extends ServiceImpl<JoinMapper,Account> implements MybatisJoinService  {
 
     private final JoinMapper joinMapper;
 
@@ -32,6 +34,11 @@ public class MybatisJoinServiceImpl implements MybatisJoinService {
                 .leftJoin(Emo.class,Emo::getId,Account::getId)
                 .eq(flag,Emo::getId,"1")
         );
+    }
+
+    @Override
+    public ResponseMsg updateBatch(List<Account> list) {
+        return new ResponseMsg(this.updateBatchById(list, list.size()));
     }
 
 }

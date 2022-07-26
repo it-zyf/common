@@ -1,9 +1,7 @@
 package com.javaboy.common.alltest;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.javaboy.common.entity.Woman;
-import org.apache.poi.ss.formula.functions.T;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -66,7 +64,16 @@ public class Test16 {
 
     @Test
     public void test4(){
-        Page<T> tPage = new Page<>();
+        ArrayList<Integer> list3 = new ArrayList<>();
+        list3.add(7);
+        list3.add(8);
+        list3.add(9);
+        list3.removeIf(integer -> integer == 7);
+        for (Integer integer : list3) {
+            System.out.println(integer);
+        }
     }
+
+
 
 }
