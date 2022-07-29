@@ -26,7 +26,7 @@ public class MybatisJoinServiceImpl extends ServiceImpl<JoinMapper,Account> impl
     @Override
     public List<AccountDto> findAll(){
 
-         Boolean flag=false;
+         boolean flag=false;
         //关联查询
         return joinMapper.selectJoinList(AccountDto.class, new MPJLambdaWrapper<Account>()
                 .selectAll(Account.class)

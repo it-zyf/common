@@ -73,10 +73,4 @@ public class Test16 {
             System.out.println(integer);
         }
     }
-    
-    
-    public void test5(){}
-
-
-
 }
