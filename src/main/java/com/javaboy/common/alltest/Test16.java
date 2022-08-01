@@ -70,6 +70,7 @@ public class Test16 {
         list3.add(9);
         list3.removeIf(integer -> integer == 7);
         for (Integer integer : list3) {
+
             System.out.println(integer);
         }
     }
