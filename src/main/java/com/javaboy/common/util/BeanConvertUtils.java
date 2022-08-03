@@ -7,10 +7,13 @@ package com.javaboy.common.util;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.javaboy.common.api.ResponseMsg;
+import com.javaboy.common.constant.CodeConstant;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -87,6 +90,51 @@ public class BeanConvertUtils extends BeanUtils {
         return sPage.setRecords(list);
 
     }
+
+    public static <S, T> ResponseMsg<T> convertPageToR(Page<S> sources, Supplier<T> targetSupplier) {
+        return convertPageToR(sources, targetSupplier, null);
+    }
+
+    public static <S, T> ResponseMsg<T> convertPageToR(Page<S> sources, Supplier<T> targetSupplier, ConvertCallBack<S, T> callBack) {
+        List<S> records = sources.getRecords();
+
+        HashMap<String, Object> map = new HashMap<>(16);
+        if (CollUtil.isEmpty(records)) {
+            return new ResponseMsg(CodeConstant.SUCCESS, CodeConstant.SUCCESS_DESC, Collections.emptyList());
+        }
+
+        List<T> list = new ArrayList<>(records.size());
+        for (S source : records) {
+            T target = targetSupplier.get();
+            copyProperties(source, target);
+            if (callBack != null) {
+                callBack.callBack(source, target);
+            }
+            list.add(target);
+        }
+
+        map.put("pageSize", sources.getSize());
+
+        //页码
+        map.put("pageNo", sources.getCurrent());
+
+        //数据结果集合
+        map.put("dataList", list);
+
+        //总页数
+        map.put("totalPage", sources.getPages());
+
+        //总记录数
+        map.put("totalRecord", sources.getTotal());
+
+        return new ResponseMsg(CodeConstant.SUCCESS, CodeConstant.SUCCESS_DESC, map);
+
+    }
+
+
+
+
+
 
     /**
      * 转换对象
