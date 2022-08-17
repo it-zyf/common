@@ -26,7 +26,7 @@ public class TreeService {
         //获取集合
         List<ModuleFunctionMenu> list = treeMapper.getAllList();
         //创建工具类
-        ConvertTree<ModuleFunctionMenu> convertTree = new ConvertTree<>();
+        ConvertTree<ModuleFunctionMenu>  convertTree= new ConvertTree<>();
         //生成森林
         List<TreeNode<ModuleFunctionMenu>> forest = convertTree.getForest(list, "id", "pid");
         return forest;

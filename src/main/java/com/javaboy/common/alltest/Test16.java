@@ -2,6 +2,7 @@ package com.javaboy.common.alltest;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.javaboy.common.entity.Woman;
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class Test16 {
     @Test
     public void test2() {
         List<String> s = new ArrayList<>();
-        s.add("123");
+//        s.add("123");
         System.out.println(s.size());
     }
 
@@ -73,5 +74,12 @@ public class Test16 {
 
             System.out.println(integer);
         }
+    }
+
+    @Test
+    public void test5(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("b");
+
     }
 }
