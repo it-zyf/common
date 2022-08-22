@@ -53,3 +53,5 @@ test:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+knife4j:
+  production: false
