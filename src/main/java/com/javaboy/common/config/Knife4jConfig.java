@@ -19,7 +19,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  */
 @Configuration
 @EnableOpenApi
-public class SwaggerConfig {
+public class Knife4jConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.OAS_30)
@@ -29,9 +29,9 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build().apiInfo(new ApiInfoBuilder()
                         .title("common")
-                        .description("SpringBoot+mybatisPlus 的一套共有的项目")
+                        .description("SpringBoot+mybatisPlus 的一套公共的项目")
                         .version("1.0")
-                        .contact(new Contact("zyf", "blog.csdn.net", "aaa@gmail.com"))
+                        .contact(new Contact("zyf", "localhost:9009/", "aaa@gmail.com"))
                         .license("The Apache License")
                         .licenseUrl("https://github.com/it-yayu?tab=repositories")
                         .build());
