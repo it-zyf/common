@@ -11,4 +11,10 @@ public interface MyTransactionService {
      */
     String transactionTest();
 
+    /**
+     * 事务失效测试
+     * @return
+     */
+    String transactionTest2();
+
 }

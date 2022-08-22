@@ -23,4 +23,10 @@ public class TransactionTest {
         return myTransactionService.transactionTest();
     }
 
+    @GetMapping("/test2")
+    public String test2(){
+        return myTransactionService.transactionTest2();
+    }
+
+
 }
