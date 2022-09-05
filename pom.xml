@@ -273,6 +273,13 @@
             <version>2.5.14.RELEASE</version>
         </dependency>
 
+        <!--ik-->
+        <dependency>
+            <groupId>com.janeluo</groupId>
+            <artifactId>ikanalyzer</artifactId>
+            <version>2012_u6</version>
+        </dependency>
+
 
     </dependencies>
 
