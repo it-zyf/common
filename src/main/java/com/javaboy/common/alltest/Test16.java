@@ -102,6 +102,7 @@ public class Test16 {
         URL value = new URL((java.lang.String) map.get("value"));
         java.lang.String host = value.getHost();
         System.out.println(host);
+
 //
 //        System.out.println(s);
 //        java.lang.String s1 = s.split(",")[0];
