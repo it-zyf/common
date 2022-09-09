@@ -25,8 +25,8 @@ public class GlobalExceptionHandler {
             log.error("业务异常:{}",ex.getMsg(),e);
             return ResponseMsg.fail(ex.getCode(), ex.getMessage());
         }
-        log.error("系统异常:{}", e.getMessage());
-        return ResponseMsg.fail(CodeConstant.FAIL, e.getMessage());
+        log.error("系统异常:{}", e.getCause().getMessage());
+        return ResponseMsg.fail(CodeConstant.FAIL,e.getCause().getMessage());
 
     }
 
