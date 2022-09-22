@@ -25,10 +25,10 @@ public class MybatisJoinServiceImpl extends ServiceImpl<JoinMapper,Account> impl
 
     @Override
     public List<AccountDto> findAll(){
-
          boolean flag=false;
+
         //关联查询
-        return joinMapper.selectJoinList(AccountDto.class, new MPJLambdaWrapper<Account>()
+        return this.joinMapper.selectJoinList(AccountDto.class, new MPJLambdaWrapper<Account>()
                 .selectAll(Account.class)
                 .select(Emo::getEmo)
                 .leftJoin(Emo.class,Emo::getId,Account::getId)

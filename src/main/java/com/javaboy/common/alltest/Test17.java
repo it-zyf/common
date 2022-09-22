@@ -1,5 +1,7 @@
 package com.javaboy.common.alltest;
 
+import cn.hutool.core.bean.BeanUtil;
+import com.javaboy.common.entity.User;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -12,14 +14,14 @@ import java.util.List;
 public class Test17 {
 
     @Test
-    public void test(){
+    public void test() {
         List<String> list = new LinkedList<>();
 
         list.add("1");
         list.add("2");
         list.add("3");
         list.add("4");
-        list.add(0,"5");
+        list.add(0, "5");
 
 
         for (String s : list) {
@@ -27,4 +29,14 @@ public class Test17 {
         }
 
     }
+
+    @Test
+    public void test2() {
+        User user = new User();
+        if (BeanUtil.isEmpty(user)) {
+            System.out.println(123);
+        }
+
+    }
+
 }
