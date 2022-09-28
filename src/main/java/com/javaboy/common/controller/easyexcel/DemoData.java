@@ -1,4 +1,4 @@
-package com.javaboy.common.controller.easyExcel;
+package com.javaboy.common.controller.easyexcel;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

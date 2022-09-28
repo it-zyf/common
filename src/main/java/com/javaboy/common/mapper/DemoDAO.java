@@ -5,7 +5,7 @@ package com.javaboy.common.mapper;
  * @create: 2021-12-31 14:48
  **/
 
-import com.javaboy.common.controller.easyExcel.DemoData;
+import com.javaboy.common.controller.easyexcel.DemoData;
 
 import java.util.List;
 

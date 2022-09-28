@@ -1,4 +1,4 @@
-package com.javaboy.common.controller.easyExcel;
+package com.javaboy.common.controller.easyexcel;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.read.listener.ReadListener;

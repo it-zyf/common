@@ -1,4 +1,4 @@
-package com.javaboy.common.controller.easyExcel;
+package com.javaboy.common.controller.easyexcel;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;

@@ -20,6 +20,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @MapperScan({"com.javaboy.common.mapper",
         "com.javaboy.common.controller.redis.hotsort.dao.mapper",
         "com.javaboy.common.controller.user.dao.mapper",
+        "com.javaboy.common.controller.easyexcel.dao.mapper",
         "com.javaboy.common.*.*.mapper"})
 @EnableOpenApi
 @EnableAsync
