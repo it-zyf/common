@@ -1,6 +1,7 @@
 package com.javaboy.common.alltest;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.javaboy.common.entity.HH;
 import com.javaboy.common.entity.User;
 import org.junit.Test;
 
