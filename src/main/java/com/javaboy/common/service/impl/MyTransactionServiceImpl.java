@@ -8,7 +8,6 @@ import com.javaboy.common.service.TransactionalCommonService;
 import com.javaboy.common.util.DoTransactionCompletion;
 import com.javaboy.common.util.TransactionUtils;
 import lombok.RequiredArgsConstructor;
-import org.codehaus.groovy.runtime.ResourceGroovyMethods;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,13 +40,14 @@ public class MyTransactionServiceImpl implements MyTransactionService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public String transactionTest() {
-        moduleMapper.delModule(12);
+        moduleMapper.delModule(13);
         commonUserService.delUser("25a2d12ad6de03fc0b396e46c13fd71d");
+        //添加事务执行成功后才调用的工具类
         TransactionUtils.doAfterTransaction(new DoTransactionCompletion(()->{
             System.out.println(123);
         }));
         System.out.println(0 / 0);
-        moduleMapper.delModule(13);
+        moduleMapper.delModule(14);
         return "ok!";
     }
 
