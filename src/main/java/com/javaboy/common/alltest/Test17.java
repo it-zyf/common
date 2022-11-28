@@ -1,43 +1,25 @@
 package com.javaboy.common.alltest;
 
-import cn.hutool.core.bean.BeanUtil;
-import com.javaboy.common.entity.HH;
-import com.javaboy.common.entity.User;
+import cn.hutool.core.lang.Assert;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author : zyf
  * @date : 2022/9/9 15:05
  */
 public class Test17 {
-
+    /**
+     * 断言测试
+     */
     @Test
     public void test() {
-        List<String> list = new LinkedList<>();
-
+        ArrayList<String> list = new ArrayList<>();
         list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add(0, "5");
-
-
-        for (String s : list) {
-            System.out.println(s);
-        }
-
+        Assert.notNull(list,"查询列表数据不能为空");
     }
 
-    @Test
-    public void test2() {
-        User user = new User();
-        if (BeanUtil.isEmpty(user)) {
-            System.out.println(123);
-        }
 
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.javaboy.common.controller.stream;
 
+import com.javaboy.common.entity.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class StreamAll {
      * list 转换 map
      */
     @Test
-    public void mapToList(){
+    public void mapToList() {
         List<UserInfo> userInfoList = new ArrayList<>();
         userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
         userInfoList.add(new UserInfo("2", "程序员田螺", 27));
@@ -28,8 +29,26 @@ public class StreamAll {
          *  (k1, k2) -> k1 表示，如果有重复的key,则保留第一个，舍弃第二个
          */
         Map<String, UserInfo> userInfoMap = userInfoList.stream().collect(Collectors.toMap(UserInfo::getUserId, userInfo -> userInfo, (k1, k2) -> k1));
-        userInfoMap.values().forEach(a->System.out.println(a.getName()));
+        userInfoMap.values().forEach(a -> System.out.println(a.getName()));
 
 
     }
+
+    /**
+     * map 转换成新的List使用
+     */
+    @Test
+    public void mapTest() {
+        List<UserInfo> userInfoList = new ArrayList<>();
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        List<User> collect = userInfoList.stream().map(userInfo -> {
+            User user = new User();
+            user.setAge(userInfo.getAge());
+            return user;
+        }).collect(Collectors.toList());
+        collect.forEach(System.out::println);
+    }
+
 }
