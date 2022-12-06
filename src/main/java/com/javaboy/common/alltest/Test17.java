@@ -20,6 +20,14 @@ public class Test17 {
         Assert.notNull(list,"查询列表数据不能为空");
     }
 
+    @Test
+    public void test1(){
+        Long aLong = new Long(99L);
+        Integer integer = new Integer(100);
+        if(aLong>integer){
+            System.out.println(123);
+        }
+    }
 
 
 }

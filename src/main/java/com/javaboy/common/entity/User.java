@@ -24,4 +24,6 @@ public class User implements Serializable {
     @NotNull(message = "邮件地址不能为空")
     @Email(message = "邮件格式不正确")
     private String email;
+
+    private Long age1;
 }

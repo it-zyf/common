@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -49,6 +50,19 @@ public class StreamAll {
             return user;
         }).collect(Collectors.toList());
         collect.forEach(System.out::println);
+    }
+
+    @Test
+    public void ListToMap(){
+        List<UserInfo> userInfoList = new ArrayList<>();
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        Map<String, UserInfo> collects = userInfoList.stream().collect(Collectors.toMap(UserInfo::getUserId, Function.identity()));
+        System.out.println(collects);
+
+
+
     }
 
 }
