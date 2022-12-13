@@ -77,12 +77,6 @@ public class StreamTest {
         map.replaceAll((k, v) -> -v);
         System.out.println(JSON.toJSONString(map));
 
-
-        Map<Integer, Integer> map1 = new HashMap<>();
-        map1.put(1,1);
-        map1.put(2,2);
-        System.out.println((int)map.get(0));
-
     }
 
 }
