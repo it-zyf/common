@@ -1,7 +1,6 @@
 package com.javaboy.common.controller.stream;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.collection.CollUtil;
 import com.alibaba.excel.util.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
@@ -18,18 +17,32 @@ public class StreamTest {
     @Test
     public void testFilter() {
         List<UserInfo> userInfoList = new ArrayList<>();
-        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
-        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
-        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
-        List<UserInfo> collect = userInfoList.stream().filter(userInfo -> {
-            UserInfo userInfo1 = new UserInfo();
-            userInfo1.setUserId("1");
-            if (BeanUtil.isEmpty(userInfo1)) {
-                return false;
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18, Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
+        List<String> list = new ArrayList<>();
+        list.add(null);
+        userInfoList.add(new UserInfo("4","123",27,list));
+        for (UserInfo userInfo : userInfoList) {
+            userInfo.getHobby().removeAll(Collections.singleton(null));
+            System.out.println(userInfo.getHobby().size());
+            if(CollUtil.isNotEmpty(userInfo.getHobby())){
+                System.out.println(userInfo.getHobby());
             }
-            return StrUtil.isBlank(userInfo.getUserId()) || Objects.equals(userInfo1.getUserId(), userInfo.getUserId());
-        }).collect(Collectors.toList());
-        System.out.println(JSON.toJSONString(collect));
+        }
+
+//        List<UserInfo> collect = userInfoList.stream().filter(userInfo -> CollUtil.isNotEmpty(userInfo.getHobby())).collect(Collectors.toList());
+//        System.out.println(JSON.toJSONString(collect));
+
+//        List<UserInfo> collect = userInfoList.stream().filter(userInfo -> {
+//            UserInfo userInfo1 = new UserInfo();
+//            userInfo1.setUserId("1");
+//            if (BeanUtil.isEmpty(userInfo1)) {
+//                return false;
+//            }
+//            return StrUtil.isBlank(userInfo.getUserId()) || Objects.equals(userInfo1.getUserId(), userInfo.getUserId());
+//        }).collect(Collectors.toList());
+        System.out.println(JSON.toJSONString(userInfoList));
 
     }
 
@@ -39,9 +52,9 @@ public class StreamTest {
     @Test
     public void testFlatmap() {
         List<UserInfo> userInfoList = new ArrayList<>();
-        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
-        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
-        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
         List<List<UserInfo>> lists = new ArrayList<>();
         lists.add(userInfoList);
         Set<String> collect = lists.stream()
@@ -60,9 +73,9 @@ public class StreamTest {
     @Test
     public void tstPeek(){
         List<UserInfo> userInfoList = new ArrayList<>();
-        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
-        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
-        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
         List<UserInfo> collect = userInfoList.stream().peek(userInfo -> userInfo.setUserId("123")).collect(Collectors.toList());
         System.out.println(JSON.toJSONString(collect));
     }

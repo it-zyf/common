@@ -4,6 +4,7 @@ import com.javaboy.common.entity.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -20,9 +21,9 @@ public class StreamAll {
     @Test
     public void mapToList() {
         List<UserInfo> userInfoList = new ArrayList<>();
-        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
-        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
-        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18, Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
 
         /**
          *  list 转 map
@@ -41,9 +42,9 @@ public class StreamAll {
     @Test
     public void mapTest() {
         List<UserInfo> userInfoList = new ArrayList<>();
-        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
-        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
-        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
         List<User> collect = userInfoList.stream().map(userInfo -> {
             User user = new User();
             user.setAge(userInfo.getAge());
@@ -55,9 +56,9 @@ public class StreamAll {
     @Test
     public void ListToMap(){
         List<UserInfo> userInfoList = new ArrayList<>();
-        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18));
-        userInfoList.add(new UserInfo("2", "程序员田螺", 27));
-        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26));
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
         Map<String, UserInfo> collects = userInfoList.stream().collect(Collectors.toMap(UserInfo::getUserId, Function.identity()));
         System.out.println(collects);
 

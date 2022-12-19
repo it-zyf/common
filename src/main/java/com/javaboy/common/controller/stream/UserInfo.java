@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author zyf
  */
@@ -18,4 +20,6 @@ public class UserInfo {
     private String name;
 
     private Integer age;
+
+    private List<String> hobby;
 }
