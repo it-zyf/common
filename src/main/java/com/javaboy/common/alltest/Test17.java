@@ -28,6 +28,13 @@ public class Test17 {
             System.out.println(123);
         }
     }
+    @Test
+    public void test2() {
+        String name = "sg-6666667778666666777866666677786666667778666666777866666677786666";
+        String finalName = "sg-" + name;
+        System.out.println(finalName.length());
+        System.out.println(name.length());
+    }
 
 
 }

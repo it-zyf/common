@@ -5,13 +5,12 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
+import com.google.common.collect.Maps;
 import com.javaboy.common.constant.ViolationRegulationEnum;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -75,4 +74,18 @@ public class Test11 {
         System.out.println(StrUtil.format(format,"127.0.0.1:8081"));
     }
 
+    @Test
+    public void test16(){
+        HashMap<Integer, String> map = Maps.newHashMap();
+//        ViolationRegulationEnum[] values = ViolationRegulationEnum.values();
+//        for (ViolationRegulationEnum value : values) {
+//            map.put(value.getCode(),value.getMsg());
+//        }
+
+        Arrays.stream(ViolationRegulationEnum.values()).forEach(item-> map.put(item.getCode(),item.getMsg()));
+        Collection<String> values = map.values();
+        for (String value : values) {
+            System.out.println(value);
+        }
+    }
 }
