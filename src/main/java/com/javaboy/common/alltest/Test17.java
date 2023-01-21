@@ -36,5 +36,11 @@ public class Test17 {
         System.out.println(name.length());
     }
 
+    @Test
+    public void test3(){
+        String format = String.format("dhcp服务的ip[%s]应该在dhcp池范围内", "123");
+        System.out.println(format);
+    }
+
 
 }
