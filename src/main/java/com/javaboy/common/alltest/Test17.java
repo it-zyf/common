@@ -1,6 +1,7 @@
 package com.javaboy.common.alltest;
 
 import cn.hutool.core.lang.Assert;
+import cn.hutool.core.util.RandomUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -41,6 +42,24 @@ public class Test17 {
         String format = String.format("dhcp服务的ip[%s]应该在dhcp池范围内", "123");
         System.out.println(format);
     }
+
+    @Test
+    public void test4(){
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("1");
+        strings.add("13");
+        strings.add("32");
+        strings.add("2");
+        String s = strings.stream().skip(RandomUtil.randomInt(0,strings.size())).findAny().get();
+        System.out.println(s);
+
+
+    }
+
+    @Test
+    public void test5(){
+    }
+
 
 
 }
