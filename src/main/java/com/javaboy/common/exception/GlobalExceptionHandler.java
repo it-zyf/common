@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ConstraintViolationException;
+
 /**
  * 最基础的全局异常处理
  * @author: zyf
@@ -24,6 +26,11 @@ public class GlobalExceptionHandler {
             CustomException ex = (CustomException)e;
             log.error("业务异常:{}",ex.getMsg(),e);
             return ResponseMsg.fail(ex.getCode(), ex.getMessage());
+        }
+        if(e instanceof ConstraintViolationException){
+            ConstraintViolationException ex = (ConstraintViolationException)e;
+            log.error("业务异常:{}",ex.getMessage());
+            return ResponseMsg.fail(CodeConstant.FAIL, ex.getMessage());
         }
         log.error("系统异常:{}", e.getCause().getMessage());
         return ResponseMsg.fail(CodeConstant.FAIL,e.getCause().getMessage());
