@@ -50,16 +50,11 @@ public class Test17 {
         strings.add("13");
         strings.add("32");
         strings.add("2");
-        String s = strings.stream().skip(RandomUtil.randomInt(0,strings.size())).findAny().get();
+        String s = strings.stream().skip(RandomUtil.randomInt(0,strings.size())).findAny().orElseThrow(()->new RuntimeException("没有合适的数据"));
         System.out.println(s);
 
 
     }
-
-    @Test
-    public void test5(){
-    }
-
 
 
 }
