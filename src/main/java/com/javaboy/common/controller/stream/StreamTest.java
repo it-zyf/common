@@ -1,6 +1,7 @@
 package com.javaboy.common.controller.stream;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.RandomUtil;
 import com.alibaba.excel.util.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
@@ -89,6 +90,20 @@ public class StreamTest {
 
         map.replaceAll((k, v) -> -v);
         System.out.println(JSON.toJSONString(map));
+
+    }
+
+    /**
+     * skip+findAny随机获取集合数据
+     */
+    @Test
+    public void test2(){
+        List<UserInfo> userInfoList = new ArrayList<>();
+        userInfoList.add(new UserInfo("1", "捡田螺的小男孩", 18,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("2", "程序员田螺", 27,Arrays.asList("1","2")));
+        userInfoList.add(new UserInfo("3", "捡瓶子的小男孩", 26,Arrays.asList("1","2")));
+        UserInfo userInfo = userInfoList.stream().skip(RandomUtil.randomInt(0, userInfoList.size())).findAny().orElseThrow(() -> new RuntimeException("没有合适的数据"));
+        System.out.println(userInfo.toString());
 
     }
 
