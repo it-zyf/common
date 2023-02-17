@@ -2,9 +2,12 @@ package com.javaboy.common.alltest;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.RandomUtil;
+import com.google.common.collect.Lists;
+import com.javaboy.common.entity.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : zyf
@@ -55,6 +58,20 @@ public class Test17 {
 
 
     }
+    @Test
+    public void test5(){
+        User user = new User();
+        user.setAge(4);
+        User user1 = new User();
+        user1.setAge(8);
+        User user2 = new User();
+        user2.setAge(8);
+        List<User> users = Lists.newArrayList(user, user1, user2);
+        User user3 = users.stream().reduce((a, b) -> a.setAge((a.getAge() + b.getAge()) / 2)).get();
+        System.out.println(user3);
+
+    }
+
 
 
 }

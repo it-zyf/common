@@ -1,6 +1,7 @@
 package com.javaboy.common.entity;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.io.Serializable;
  * @description:
  * @date 2021/2/2 14:09
  */
+@Accessors(chain = true)
 @Data
 public class User implements Serializable {
     private String id;
