@@ -67,7 +67,7 @@ public class Test17 {
         User user2 = new User();
         user2.setAge(8);
         List<User> users = Lists.newArrayList(user, user1, user2);
-        User user3 = users.stream().reduce((a, b) -> a.setAge((a.getAge() + b.getAge()) / 2)).get();
+        User user3 = users.stream().reduce((a, b) -> a.setAge((a.getAge() + b.getAge()) / 2)).orElseThrow(()->new RuntimeException("数据异常"));
         System.out.println(user3);
 
     }
