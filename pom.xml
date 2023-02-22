@@ -280,6 +280,12 @@
             <version>2012_u6</version>
         </dependency>
 
+        <!--vavr-->
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.9.3</version>
+        </dependency>
 
     </dependencies>
 

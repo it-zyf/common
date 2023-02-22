@@ -7,6 +7,7 @@ import com.javaboy.common.entity.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -70,6 +71,19 @@ public class Test17 {
         User user3 = users.stream().reduce((a, b) -> a.setAge((a.getAge() + b.getAge()) / 2)).orElseThrow(()->new RuntimeException("数据异常"));
         System.out.println(user3);
 
+    }
+
+    @Test
+    public void  test6(){
+        List<Integer> deployedStatus = new ArrayList<>(getDeployedStatus());
+        deployedStatus.add(8);
+        deployedStatus.remove(3);
+        System.out.println(deployedStatus.size());
+    }
+
+
+    public static List<Integer> getDeployedStatus() {
+        return Arrays.asList(1, 2, 3, 4, 6, 7);
     }
 
 
