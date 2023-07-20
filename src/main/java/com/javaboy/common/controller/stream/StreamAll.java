@@ -62,8 +62,9 @@ public class StreamAll {
         Map<String, UserInfo> collects = userInfoList.stream().collect(Collectors.toMap(UserInfo::getUserId, Function.identity()));
         System.out.println(collects);
 
-
-
     }
+
+
+
 
 }

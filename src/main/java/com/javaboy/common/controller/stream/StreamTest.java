@@ -4,11 +4,13 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.excel.util.StringUtils;
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author: zyf
@@ -106,5 +108,27 @@ public class StreamTest {
         System.out.println(userInfo.toString());
 
     }
+
+    @Test
+    public void test3(){
+        List<UserInfo> list = Lists.newArrayList();
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId("1");
+        userInfo.setName("zhangsan");
+        UserInfo userInfo2 = new UserInfo();
+        userInfo2.setUserId("2");
+        userInfo2.setName("lisi");
+        list.add(userInfo);
+        list.add(userInfo2);
+
+        List<Object> mergedList = list.stream()
+                .flatMap(obj -> Stream.of(obj.getUserId(), obj.getName()))
+                .collect(Collectors.toList());
+
+        System.out.println(mergedList);
+
+
+    }
+
 
 }
