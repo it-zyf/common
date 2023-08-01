@@ -1,9 +1,7 @@
 package com.javaboy.common.common_test.guava;
 
-import com.github.rholder.retry.RetryException;
-import com.github.rholder.retry.Retryer;
-import com.github.rholder.retry.RetryerBuilder;
-import com.github.rholder.retry.StopStrategies;
+import com.github.rholder.retry.*;
+import com.google.common.base.Predicates;
 import com.javaboy.common.entity.User;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zyf
@@ -21,18 +20,19 @@ public class GuavaRetryTest {
 
     @Test
     public void test(){
-        Callable<User> callable = () -> {
+        Callable<Boolean> callable = () -> {
             // do something useful here
             System.out.println(123);
             User user = new User();
             user.setAge(5);
-            return user;
+            return true;
         };
-        Retryer<User> retryer = RetryerBuilder.<User>newBuilder()
-                .retryIfResult(user -> user.getAge()<10)
+        Retryer<Boolean> retryer = RetryerBuilder.<Boolean>newBuilder()
+                .retryIfResult(Predicates.<Boolean>alwaysTrue())
                 .retryIfExceptionOfType(IOException.class)
                 .retryIfRuntimeException()
                 .withStopStrategy(StopStrategies.stopAfterAttempt(3))
+                .withWaitStrategy(WaitStrategies.fixedWait(10,TimeUnit.SECONDS))
                 .build();
         try {
             retryer.call(callable);

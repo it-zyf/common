@@ -1,5 +1,9 @@
 package com.javaboy.common.common_test;
 
+import com.alibaba.fastjson.JSON;
+import com.javaboy.common.entity.User;
+import org.junit.Test;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -40,4 +44,32 @@ public class ListTest {
 
 //        System.out.println(JSON.toJSON(list1));
     }
+
+
+    @Test
+    public void test(){
+        List<User> list =new ArrayList<>();
+        list.add(new User().setAge(1));
+        UserList userList = new UserList();
+        userList.setList(list);
+
+
+        List<User> list1 = userList.getList();
+
+        for (User user : list1) {
+            user.setAge(2);
+        }
+
+        System.out.println(JSON.toJSONString(userList,true));
+
+
+    }
+
+
+
+
+
+
+
+
 }
