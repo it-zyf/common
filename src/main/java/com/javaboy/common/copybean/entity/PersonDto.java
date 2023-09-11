@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: zyf
@@ -26,4 +27,6 @@ public class PersonDto {
     private Integer sex;
 
     private List<String> hobby;
+
+    private Map map;
 }
