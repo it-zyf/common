@@ -1,5 +1,6 @@
 package com.javaboy.common.strategy.service;
 
+import com.javaboy.common.strategy.ExecuteFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -17,6 +18,6 @@ class ExecuteTest {
 
     @Test
     void test1() {
-        executeFactory.test("wechat");
+        executeFactory.test("qq");
     }
 }

@@ -1,6 +1,7 @@
-package com.javaboy.common.strategy.service;
+package com.javaboy.common.strategy;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.javaboy.common.strategy.service.PayBaseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,7 +16,7 @@ public class ExecuteFactory {
     @Resource
     private List<PayBaseService> list;
 
-    public void test(String payType){
+    public void test(String payType)  {
         list.stream().filter(b-> ObjectUtil.equal(b.getPayType(),payType)).findAny().orElseThrow(()->new RuntimeException("未找到对应支付方式")).pay();
     }
 
