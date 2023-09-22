@@ -46,7 +46,6 @@ public class MyTransactionServiceImpl implements MyTransactionService {
         TransactionUtils.doAfterTransaction(new DoTransactionCompletion(()->{
             System.out.println(123);
         }));
-        System.out.println(0 / 0);
         moduleMapper.delModule(14);
         return "ok!";
     }

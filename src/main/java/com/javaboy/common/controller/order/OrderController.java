@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 /**
  * @author zyf
  * @date 2022/12/6 17:08
+ * AOP 区分接口,保存打印日志.
  */
 @RestController
 @RequestMapping("/order")
