@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author zyf
  * @date 2023/8/18 14:13
  */
-public class Test {
+public class HuToolTest {
 
     @org.junit.Test
     public void test(){
@@ -25,7 +25,6 @@ public class Test {
         Assert.notEmpty(objects,"集合不能为空");
 
         Assert.isFalse(objects.contains("1"),"不能通过");
-
 
     }
 
