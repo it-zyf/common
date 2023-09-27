@@ -7,6 +7,7 @@ import com.javaboy.common.completefuture.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -27,14 +28,13 @@ public class AccountServiceImpl  implements AccountService {
 
         //并行根据accountId找到account
         List<CompletableFuture<Account>> accountFindingFutureList =
-                accountIdList.stream().map(accountId->findAccount(accountId)).collect(Collectors.toList());
+                accountIdList.stream().map(this::findAccount).collect(Collectors.toList());
 
         CompletableFuture<Void> allFutures =
                 CompletableFuture
                         .allOf(accountFindingFutureList.toArray(new CompletableFuture[accountFindingFutureList.size()]));
 
-        CompletableFuture<List<Account>> finalResults = allFutures.thenApply(v -> accountFindingFutureList.stream().map(accountFindingFuture ->
-                        accountFindingFuture.join())
+        CompletableFuture<List<Account>> finalResults = allFutures.thenApply(v -> accountFindingFutureList.stream().map(CompletableFuture::join)
                 .collect(Collectors.toList()));
 
         try {
@@ -45,6 +45,38 @@ public class AccountServiceImpl  implements AccountService {
             e.printStackTrace();
         }
         return new ResponseMsg<>();
+    }
+
+    @Override
+    public List<String> queryAllList() {
+
+        //异步查询第一个数据
+        CompletableFuture<List<String>> future = CompletableFuture.supplyAsync(() -> {
+            List<String> list = new ArrayList<>();
+            list.add("zhangsan");
+            return list;
+        });
+        //异步查询第二个数据
+        CompletableFuture<List<String>> future1 = CompletableFuture.supplyAsync(() -> {
+            List<String> list = new ArrayList<>();
+            list.add("lisi");
+            return list;
+        });
+        //阻塞异步完成
+        CompletableFuture.allOf(future,future1).join();
+        try {
+            //整合数据
+            List<String> listOne = future.get();
+            List<String> listTwo = future1.get();
+            listOne.addAll(listTwo);
+            return listOne;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     private CompletableFuture<Account> findAccount(Integer accountId){

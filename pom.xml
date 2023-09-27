@@ -295,6 +295,13 @@
             <version>2.0.0</version>
         </dependency>
 
+        <!--京东并发工具包-->
+        <dependency>
+            <groupId>com.gitee.jd-platform-opensource</groupId>
+            <artifactId>asyncTool</artifactId>
+            <version>V1.4-79651da39d-1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

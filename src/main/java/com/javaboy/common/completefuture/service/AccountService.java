@@ -17,4 +17,12 @@ public interface AccountService {
      * @return
      */
     ResponseMsg<List<Account>> list(List<Integer> accountIdList);
+
+
+    /**
+     * 异步编排,整个结果返回
+     * @return
+     */
+    List<String> queryAllList();
+
 }
