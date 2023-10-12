@@ -12,9 +12,9 @@ import java.util.ArrayList;
 public class HuToolTest {
 
     @org.junit.Test
-    public void test(){
-        String a ="";
-        String b ="";
+    public void test() {
+        String a = "";
+        String b = "";
         ArrayList<Object> objects = new ArrayList<>();
         objects.add("1");
 
@@ -24,11 +24,12 @@ public class HuToolTest {
         Assert.isFalse(StrUtil.isBlank(a) && StrUtil.isBlank(b), "参数异常");
 
 
-        Assert.notEmpty(objects,"集合不能为空");
+        Assert.notEmpty(objects, "集合不能为空");
 
 
-        Assert.isFalse(objects.contains("1"),"不能通过");
+        Assert.isFalse(objects.contains("1"), "不能通过");
 
     }
+
 
 }

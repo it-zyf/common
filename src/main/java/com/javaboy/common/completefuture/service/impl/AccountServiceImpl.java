@@ -5,6 +5,7 @@ import com.javaboy.common.completefuture.dao.entity.Account;
 import com.javaboy.common.completefuture.dao.mapper.AccountMapper;
 import com.javaboy.common.completefuture.service.AccountService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,9 +20,10 @@ import java.util.stream.Collectors;
  **/
 @Service
 @RequiredArgsConstructor
-public class AccountServiceImpl  implements AccountService {
+@Slf4j
+public class AccountServiceImpl implements AccountService {
 
-    private final  AccountMapper accountMapper;
+    private final AccountMapper accountMapper;
 
     @Override
     public ResponseMsg<List<Account>> list(List<Integer> accountIdList) {
@@ -39,10 +41,9 @@ public class AccountServiceImpl  implements AccountService {
 
         try {
             return new ResponseMsg<>(finalResults.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        } catch (InterruptedException | ExecutionException e) {
+            log.error("获取数据异常" + e.getMessage());
+            Thread.currentThread().interrupt();
         }
         return new ResponseMsg<>();
     }
@@ -63,7 +64,7 @@ public class AccountServiceImpl  implements AccountService {
             return list;
         });
         //阻塞异步完成
-        CompletableFuture.allOf(future,future1).join();
+        CompletableFuture.allOf(future, future1).join();
         try {
             //整合数据
             List<String> listOne = future.get();
@@ -79,14 +80,14 @@ public class AccountServiceImpl  implements AccountService {
 
     }
 
-    private CompletableFuture<Account> findAccount(Integer accountId){
-        return CompletableFuture.supplyAsync(()->{
-            try{
+    private CompletableFuture<Account> findAccount(Integer accountId) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
                 System.out.println(Thread.currentThread().getName());
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            return  accountMapper.selectById(accountId);
+            return accountMapper.selectById(accountId);
         });
     }
 }
