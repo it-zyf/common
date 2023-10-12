@@ -7,7 +7,7 @@ import org.jetbrains.annotations.Nullable;
  * @date 2023/10/12 16:08
  */
 public class CommonUrlDiscover extends AbstractUrlDiscover{
-
+    //具体一版业务实现
     @Nullable
     @Override
     public String getTitle(String document) {

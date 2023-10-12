@@ -6,6 +6,7 @@ package com.javaboy.common.test;
  */
 public class WxUrlDiscover extends AbstractUrlDiscover{
 
+    //具体,举列:微信业务实现
     @Override
     public String getTitle(String document) {
         return null;
