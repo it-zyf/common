@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 public abstract class CommonPayAbstract implements CommonPayInterface{
 
     public abstract MessageMarkTypeEnum getTypeEnum();
+
     @PostConstruct
     public void  init(){
         ExcueteAbstractFactory.register(getTypeEnum().getType(),this);
@@ -21,4 +22,5 @@ public abstract class CommonPayAbstract implements CommonPayInterface{
     public void sumMoney() {
         System.out.println("公有的计价方式");
     }
+
 }

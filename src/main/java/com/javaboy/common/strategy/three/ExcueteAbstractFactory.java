@@ -11,7 +11,7 @@ import java.util.Map;
  * @date 2023/10/13 15:35
  */
 public abstract class ExcueteAbstractFactory {
-    public static final Map<Integer,CommonPayAbstract> PAY_MAP=new HashMap<>();
+    protected static final Map<Integer,CommonPayAbstract> PAY_MAP=new HashMap<>();
 
     public static void register(Integer markType, CommonPayAbstract strategy) {
         PAY_MAP.put(markType, strategy);
