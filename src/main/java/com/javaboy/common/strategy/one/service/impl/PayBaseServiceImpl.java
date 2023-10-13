@@ -1,6 +1,6 @@
-package com.javaboy.common.strategy.service.impl;
+package com.javaboy.common.strategy.one.service.impl;
 
-import com.javaboy.common.strategy.service.PayBaseService;
+import com.javaboy.common.strategy.one.service.PayBaseService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,4 +18,5 @@ public class PayBaseServiceImpl implements PayBaseService {
     public void pay() {
         System.out.println("QQ支付逻辑");
     }
+
 }

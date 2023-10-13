@@ -1,7 +1,7 @@
-package com.javaboy.common.strategy;
+package com.javaboy.common.strategy.one;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.javaboy.common.strategy.service.PayBaseService;
+import com.javaboy.common.strategy.one.service.PayBaseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Service
 public class ExecuteFactory {
+    //将所有的策略注入进来
     @Resource
     private List<PayBaseService> list;
 

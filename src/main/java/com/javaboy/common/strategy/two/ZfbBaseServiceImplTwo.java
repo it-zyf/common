@@ -1,6 +1,5 @@
-package com.javaboy.common.strategy.service.impl;
+package com.javaboy.common.strategy.two;
 
-import com.javaboy.common.strategy.service.PayBaseService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,14 +7,16 @@ import org.springframework.stereotype.Service;
  * @date 2023/9/11 16:46
  */
 @Service
-public class ZfbBaseServiceImpl implements PayBaseService {
+public class ZfbBaseServiceImplTwo extends AbstractBaseFactoryStrategy {
+
     @Override
-    public String getPayType() {
-        return "zfb";
+    protected MessageMarkTypeEnum getTypeEnum() {
+        return MessageMarkTypeEnum.QQ;
     }
 
     @Override
     public void pay() {
+        super.pay();
         System.out.println("支付宝支付逻辑");
     }
 }

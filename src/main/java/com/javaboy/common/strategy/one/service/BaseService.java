@@ -1,4 +1,4 @@
-package com.javaboy.common.strategy.service;
+package com.javaboy.common.strategy.one.service;
 
 /**
  * 基础策略类

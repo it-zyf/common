@@ -1,6 +1,6 @@
 package com.javaboy.common.strategy.service;
 
-import com.javaboy.common.strategy.ExecuteFactory;
+import com.javaboy.common.strategy.one.ExecuteFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
