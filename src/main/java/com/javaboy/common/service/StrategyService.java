@@ -20,7 +20,7 @@ public class StrategyService {
     @Autowired
     StrategyServiceImpl strategyServiceImpl;
 
-    private Map<String, Function<FlagDto, String>> grantTypeMap=new HashMap<>();
+    private final Map<String, Function<FlagDto, String>> grantTypeMap=new HashMap<>();
 
     @PostConstruct
     public void dispatcherInit(){
