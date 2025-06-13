@@ -55,3 +55,6 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 knife4j:
   production: false
+# ai配置
+ai:
+  api-key: 'ur'
