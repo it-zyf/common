@@ -6,7 +6,7 @@ package com.javaboy.common.discover;
  */
 public class Test {
     public static void main(String[] args) {
-        ExcuteDiscover excuteDiscover = new ExcuteDiscover();
+        ExecuteDiscover excuteDiscover = new ExecuteDiscover();
         String title = excuteDiscover.getTitle("chat");
         System.out.println(title);
     }
