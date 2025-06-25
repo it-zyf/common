@@ -3,14 +3,10 @@ package com.javaboy.common.vavr;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.javaboy.common.entity.User;
-import io.vavr.API;
-import io.vavr.Tuple;
-import io.vavr.Tuple1;
-import io.vavr.Tuple2;
+import io.vavr.*;
 import io.vavr.collection.List;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
-import lombok.var;
 import org.junit.Test;
 
 import java.util.Objects;
@@ -62,7 +58,7 @@ public class VavrTest {
         System.out.println(s + age);
 
         //lombok var
-        var all = Tuple.of(1, "2", List.of(1, 2, 3), new User());
+        Tuple4<Integer, String, List<Integer>, User> all = Tuple.of(1, "2", List.of(1, 2, 3), new User());
         Integer integer1 = all._1;
         List<Integer> integers = all._3();
         System.out.println(integer1);
@@ -79,7 +75,7 @@ public class VavrTest {
      */
     @Test
     public void test3() {
-        var result = Option.of("hello")
+        String result = Option.of("hello")
                 .map(str -> (String) null)
                 .getOrElse(() -> "world");
         System.out.println(result);

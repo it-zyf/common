@@ -3,7 +3,7 @@ package com.javaboy.common.alltest;
 import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.fastjson.JSON;
 import com.javaboy.common.entity.Woman;
-import com.sun.org.apache.xpath.internal.operations.String;
+
 import org.junit.Test;
 
 import java.net.MalformedURLException;
