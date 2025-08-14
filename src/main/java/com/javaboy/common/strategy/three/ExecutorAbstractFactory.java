@@ -10,7 +10,7 @@ import java.util.Map;
  * @author zyf
  * @date 2023/10/13 15:35
  */
-public abstract class ExcueteAbstractFactory {
+public abstract class ExecutorAbstractFactory {
     protected static final Map<Integer,CommonPayAbstract> PAY_MAP=new HashMap<>();
 
     public static void register(Integer markType, CommonPayAbstract strategy) {
