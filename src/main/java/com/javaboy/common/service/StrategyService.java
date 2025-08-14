@@ -1,13 +1,16 @@
 package com.javaboy.common.service;
 
-import com.javaboy.common.controller.strategy.FlagDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.javaboy.common.strategy.map.FlagDto;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -17,10 +20,13 @@ import java.util.function.Function;
 @Service
 public class StrategyService {
 
-    @Autowired
+    @Resource
     StrategyServiceImpl strategyServiceImpl;
 
     private final Map<String, Function<FlagDto, String>> grantTypeMap=new HashMap<>();
+
+    private static final Map<String, BiFunction<Object, Long, File>> REGISTER_MAP = new ConcurrentHashMap<>();
+
 
     @PostConstruct
     public void dispatcherInit(){

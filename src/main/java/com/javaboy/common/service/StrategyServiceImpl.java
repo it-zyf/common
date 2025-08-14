@@ -1,6 +1,6 @@
 package com.javaboy.common.service;
 
-import com.javaboy.common.controller.strategy.FlagDto;
+import com.javaboy.common.strategy.map.FlagDto;
 import org.springframework.stereotype.Service;
 
 /**

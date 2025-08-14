@@ -1,4 +1,4 @@
-package com.javaboy.common.controller.strategy;
+package com.javaboy.common.strategy.map;
 
 import com.javaboy.common.service.StrategyService;
 import org.springframework.beans.factory.annotation.Autowired;
