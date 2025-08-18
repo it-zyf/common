@@ -14,7 +14,7 @@ public abstract class CommonPayAbstract implements CommonPayInterface{
 
     @PostConstruct
     public void  init(){
-        ExcueteAbstractFactory.register(getTypeEnum().getType(),this);
+        ExecutorAbstractFactory.register(getTypeEnum().getType(),this);
     }
 
 
